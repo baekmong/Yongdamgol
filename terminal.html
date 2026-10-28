@@ -1,0 +1,300 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet"></head><body style="margin:0;background:#0d0f0c;max-width:393px"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri/dist/Galmuri11.css">
+<style>
+.tm-wrap{background:#0d0f0c;padding:28px 0;font-family:'Noto Sans KR',sans-serif}
+.tm-wrap input{display:none}
+.tm-lead{text-align:center;font-family:'Galmuri11',monospace;font-size:10px;line-height:2;color:#5c7d44;padding:0 18px;margin-bottom:20px}
+.tm-dev{width:75%;max-width:520px;margin:0 auto;background:linear-gradient(160deg,#3a3d44,#1b1d21);border-radius:14px;padding:12px 12px 16px;box-shadow:0 8px 26px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.07)}
+.tm-brand{display:flex;align-items:center;gap:6px;margin-bottom:9px;padding:0 3px}
+.tm-led{width:5px;height:5px;border-radius:50%;background:#7ab85a;box-shadow:0 0 6px #7ab85a}
+.tm-brand span{font-family:'Galmuri11',monospace;font-size:7.0px;color:#6a6e76;letter-spacing:.1em}
+.tm-scr{background:#0e1409;border:2px solid #0a0c07;border-radius:4px;padding:13px;height:390px;overflow-y:auto;position:relative;box-shadow:inset 0 0 26px rgba(0,0,0,.8);font-family:'Galmuri11',monospace;font-size:9px;color:#93c96f;line-height:1.9}
+.tm-scr::-webkit-scrollbar{width:5px}
+.tm-scr::-webkit-scrollbar-thumb{background:#2b3a1f;border-radius:3px}
+.tm-scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 2px,rgba(0,0,0,0.17) 2px 3px);pointer-events:none;z-index:9;border-radius:2px}
+.tm-hd{font-size:7.2px;color:#5c7d44;border-bottom:1px solid #2b3a1f;padding-bottom:6px;margin-bottom:12px;letter-spacing:.1em;display:flex;justify-content:space-between}
+.tm-nav{display:flex;justify-content:space-between;font-size:7.9px;border-top:1px solid #2b3a1f;margin-top:14px;padding-top:9px}
+.tm-nav label{color:#93c96f;cursor:pointer}
+.tm-nav .off{color:#5c7d44}
+.tm-dim{color:#5c7d44}.tm-mid{color:#7ba858}.tm-warn{color:#c9a44a}
+.tm-ttl{text-align:center;font-size:15.8px;letter-spacing:.16em;margin:14px 0 6px;text-shadow:0 0 5px #93c96f46}
+.tm-sub{text-align:center;font-size:7.2px;color:#5c7d44;letter-spacing:.1em;margin-bottom:20px}
+.tm-kv{font-size:8.1px;color:#7ba858;border-top:1px dashed #2b3a1f;padding-top:10px}
+.tm-kv div{display:flex;justify-content:space-between;padding:1px 0}
+.tm-list{font-size:9px;line-height:2.5}
+.tm-list label{display:flex;justify-content:space-between;padding:2px 6px;margin:0 -6px;color:#7ba858;cursor:pointer}
+.tm-list label:hover{color:#93c96f}
+.tm-list label .n{font-size:7.2px;color:#5c7d44}
+.tm-list .sep{border-top:1px dashed #2b3a1f;margin:8px -6px 0;padding-top:8px}
+.tm-ph{width:96px;aspect-ratio:1/1;margin:0 auto 10px;border:1px solid #3c5a28;background:repeating-linear-gradient(45deg,#0e1409 0 3px,#2b3a1f55 3px 6px);background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;font-size:33px}
+.tm-nm{text-align:center;font-size:11.3px;letter-spacing:.1em;margin-bottom:3px}
+.tm-meta{text-align:center;font-size:7.2px;color:#5c7d44;margin-bottom:11px}
+.tm-body{font-size:8.3px;color:#7ba858;border-top:1px dashed #2b3a1f;padding-top:10px;line-height:2}
+.tm-quote{font-size:8.1px;color:#93c96f;margin-top:10px;padding-top:9px;border-top:1px dashed #2b3a1f;text-align:center}
+.tm-txt{font-size:8.5px;color:#7ba858;line-height:2.05}
+.tm-q{color:#93c96f;margin-top:12px}
+.tm-q:first-child{margin-top:0}
+.tm-a{color:#7ba858;padding-left:10px;border-left:1px solid #2b3a1f;margin-top:4px}
+.tm-logi{margin-bottom:14px}
+.tm-logd{color:#5c7d44;font-size:7.2px}
+.tm-logt{color:#93c96f}
+.tm-logx{color:#7ba858;font-size:8.1px}
+.tm-page{display:none}
+#pg_home:checked~.tm-dev .tm-home,#pg_menu:checked~.tm-dev .tm-menupage,#pg_chars:checked~.tm-dev .tm-chars,#pg_rel:checked~.tm-dev .tm-relpage,#pg_log:checked~.tm-dev .tm-log,#pg_c0:checked~.tm-dev .tm-c0,#pg_c1:checked~.tm-dev .tm-c1,#pg_c2:checked~.tm-dev .tm-c2,#pg_c3:checked~.tm-dev .tm-c3,#pg_c4:checked~.tm-dev .tm-c4,#pg_c5:checked~.tm-dev .tm-c5,#pg_c6:checked~.tm-dev .tm-c6,#pg_c7:checked~.tm-dev .tm-c7,#pg_c8:checked~.tm-dev .tm-c8,#pg_c9:checked~.tm-dev .tm-c9,#pg_c10:checked~.tm-dev .tm-c10,#pg_c11:checked~.tm-dev .tm-c11,#pg_c12:checked~.tm-dev .tm-c12,#pg_c13:checked~.tm-dev .tm-c13,#pg_c14:checked~.tm-dev .tm-c14,.r:checked~.tm-dev .tm-relpage{display:block}
+.tm-home{display:block}
+.p:checked~.tm-dev .tm-home{display:none}
+#pg_home:checked~.tm-dev .tm-home{display:block}
+.tm-map{position:relative;width:100%;aspect-ratio:1/1.4;margin:6px 0 4px}
+.tm-map svg{position:absolute;inset:0;width:100%;height:100%}
+.tm-map svg line{transition:opacity .3s,stroke-width .3s}
+.tm-node{position:absolute;transform:translate(-50%,-50%);text-align:center;cursor:pointer;z-index:3;line-height:1}
+.tm-node i{display:block;width:34px;height:34px;border:1px solid #3c5a28;background:#0e1409 center/cover no-repeat;color:#93c96f;font-size:17px;line-height:32px;font-style:normal;margin:0 auto;transition:border-color .3s,transform .3s}
+.tm-node b{display:block;font-size:7.0px;color:#7ba858;margin-top:3px;white-space:nowrap;font-weight:400;text-shadow:0 0 4px #0e1409,0 0 7px #0e1409}
+.tm-node:hover i{border-color:#93c96f}
+.tm-rel{font-size:8.1px;border-top:1px dashed #2b3a1f;padding-top:10px;margin-top:6px}
+.tm-relh{color:#93c96f;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.tm-relh label{color:#5c7d44;cursor:pointer;padding:0 4px}
+.tm-rr{margin-bottom:11px}
+.tm-rrt{color:#7ba858;font-size:7.4px;display:flex;justify-content:space-between;gap:6px}
+.tm-rrx{color:#7ba858;padding-left:9px;border-left:1px solid #2b3a1f;margin-top:3px;line-height:1.9}
+.tm-none{color:#5c7d44;text-align:center;padding:14px 0}
+.tm-rp{display:none}
+.tm-rp.rp-none{display:block}
+.r:checked~.tm-dev .rp-none{display:none}
+.r:checked~.tm-dev .tm-map svg line{opacity:.2}
+.tm-c0 .tm-ph,.tm-node.n0 i{background-image:url('https://lh3.googleusercontent.com/d/16mSW0DThs7DMfhbv9SX8Lov57pT1bDkX');background-size:128%;background-position:50% 34%}
+#pg_r0:checked~.tm-dev .rp0{display:block}
+#pg_r0:checked~.tm-dev .n0 i{border-color:#93c96f;transform:scale(1.18);box-shadow:0 0 10px #93c96f66}
+#pg_r0:checked~.tm-dev line.n0{opacity:1;stroke-width:2.9}
+.tm-c1 .tm-ph,.tm-node.n1 i{background-image:url('https://lh3.googleusercontent.com/d/1-4yoYACo_yjOXiBgSsDZDCQQ-ad78DoY');background-size:128%;background-position:50% 45%}
+#pg_r1:checked~.tm-dev .rp1{display:block}
+#pg_r1:checked~.tm-dev .n1 i{border-color:#93c96f;transform:scale(1.18);box-shadow:0 0 10px #93c96f66}
+#pg_r1:checked~.tm-dev line.n1{opacity:1;stroke-width:2.9}
+.tm-c2 .tm-ph,.tm-node.n2 i{background-image:url('https://lh3.googleusercontent.com/d/1AfDqU8deP0mtESKbET7AjyJQvRh10ohQ');background-size:116%;background-position:50% 39%}
+#pg_r2:checked~.tm-dev .rp2{display:block}
+#pg_r2:checked~.tm-dev .n2 i{border-color:#93c96f;transform:scale(1.18);box-shadow:0 0 10px #93c96f66}
+#pg_r2:checked~.tm-dev line.n2{opacity:1;stroke-width:2.9}
+.tm-c3 .tm-ph,.tm-node.n3 i{background-image:url('https://lh3.googleusercontent.com/d/1-P0lS53WoPk0wwNlRE4zyM64aTF99AsG');background-size:126%;background-position:50% 25%}
+#pg_r3:checked~.tm-dev .rp3{display:block}
+#pg_r3:checked~.tm-dev .n3 i{border-color:#93c96f;transform:scale(1.18);box-shadow:0 0 10px #93c96f66}
+#pg_r3:checked~.tm-dev line.n3{opacity:1;stroke-width:2.9}
+.tm-c4 .tm-ph,.tm-node.n4 i{background-image:url('https://lh3.googleusercontent.com/d/1stRBQHiSmerIx-P39C57bicaSxhZWZ_2');background-size:110%;background-position:50% 50%}
+#pg_r4:checked~.tm-dev .rp4{display:block}
+#pg_r4:checked~.tm-dev .n4 i{border-color:#93c96f;transform:scale(1.18);box-shadow:0 0 10px #93c96f66}
+#pg_r4:checked~.tm-dev line.n4{opacity:1;stroke-width:2.9}
+.tm-c5 .tm-ph,.tm-node.n5 i{background-image:url('https://lh3.googleusercontent.com/d/1QwJoL-zkWqNKxU1dYHOw5gWlRMWVwb4f');background-size:176%;background-position:50% 29%}
+#pg_r5:checked~.tm-dev .rp5{display:block}
+#pg_r5:checked~.tm-dev .n5 i{border-color:#93c96f;transform:scale(1.18);box-shadow:0 0 10px #93c96f66}
+#pg_r5:checked~.tm-dev line.n5{opacity:1;stroke-width:2.9}
+.tm-c6 .tm-ph,.tm-node.n6 i{background-image:url('https://lh3.googleusercontent.com/d/1QQva00PXrUu_tI3qpm4SMMKH00__g4gX');background-size:126%;background-position:40% 36%}
+#pg_r6:checked~.tm-dev .rp6{display:block}
+#pg_r6:checked~.tm-dev .n6 i{border-color:#93c96f;transform:scale(1.18);box-shadow:0 0 10px #93c96f66}
+#pg_r6:checked~.tm-dev line.n6{opacity:1;stroke-width:2.9}
+.tm-c7 .tm-ph,.tm-node.n7 i{background-image:url('https://lh3.googleusercontent.com/d/1-Y-3L3mU_9oeNsGy1z9ZLB4PSJxIU4M6');background-size:124%;background-position:50% 50%}
+#pg_r7:checked~.tm-dev .rp7{display:block}
+#pg_r7:checked~.tm-dev .n7 i{border-color:#93c96f;transform:scale(1.18);box-shadow:0 0 10px #93c96f66}
+#pg_r7:checked~.tm-dev line.n7{opacity:1;stroke-width:2.9}
+.tm-c8 .tm-ph,.tm-node.n8 i{background-image:url('https://lh3.googleusercontent.com/d/1hluVHC_4bqw1y49r2nyqoTvo6Xtx5w0-');background-size:118%;background-position:50% 28%}
+#pg_r8:checked~.tm-dev .rp8{display:block}
+#pg_r8:checked~.tm-dev .n8 i{border-color:#93c96f;transform:scale(1.18);box-shadow:0 0 10px #93c96f66}
+#pg_r8:checked~.tm-dev line.n8{opacity:1;stroke-width:2.9}
+.tm-c9 .tm-ph,.tm-node.n9 i{background-image:url('https://lh3.googleusercontent.com/d/1caecqd6pNjjYdiyPKQWhKvM13wi9fqW3');background-size:128%;background-position:50% 36%}
+#pg_r9:checked~.tm-dev .rp9{display:block}
+#pg_r9:checked~.tm-dev .n9 i{border-color:#93c96f;transform:scale(1.18);box-shadow:0 0 10px #93c96f66}
+#pg_r9:checked~.tm-dev line.n9{opacity:1;stroke-width:2.9}
+.tm-c10 .tm-ph,.tm-node.n10 i{background-image:url('https://lh3.googleusercontent.com/d/1PML-RTA1oIHrOjmNxst9uYR2t6bQd-VW');background-size:126%;background-position:50% 28%}
+#pg_r10:checked~.tm-dev .rp10{display:block}
+#pg_r10:checked~.tm-dev .n10 i{border-color:#93c96f;transform:scale(1.18);box-shadow:0 0 10px #93c96f66}
+#pg_r10:checked~.tm-dev line.n10{opacity:1;stroke-width:2.9}
+.tm-c11 .tm-ph,.tm-node.n11 i{background-image:url('https://lh3.googleusercontent.com/d/15CnP-V3yotsKa9XsrRo3B-0KEZwIbybf');background-size:148%;background-position:50% 50%}
+#pg_r11:checked~.tm-dev .rp11{display:block}
+#pg_r11:checked~.tm-dev .n11 i{border-color:#93c96f;transform:scale(1.18);box-shadow:0 0 10px #93c96f66}
+#pg_r11:checked~.tm-dev line.n11{opacity:1;stroke-width:2.9}
+.tm-c12 .tm-ph,.tm-node.n12 i{background-image:url('https://lh3.googleusercontent.com/d/1L8kXCr7bzSmCZ7xYCUIBsMrlLq3vtly-');background-size:128%;background-position:50% 42%}
+#pg_r12:checked~.tm-dev .rp12{display:block}
+#pg_r12:checked~.tm-dev .n12 i{border-color:#93c96f;transform:scale(1.18);box-shadow:0 0 10px #93c96f66}
+#pg_r12:checked~.tm-dev line.n12{opacity:1;stroke-width:2.9}
+.tm-c13 .tm-ph,.tm-node.n13 i{background-image:url('https://lh3.googleusercontent.com/d/1PCBxwTzkO5NIjND3-X4pxztfWjSembwp');background-size:146%;background-position:50% 23%}
+#pg_r13:checked~.tm-dev .rp13{display:block}
+#pg_r13:checked~.tm-dev .n13 i{border-color:#93c96f;transform:scale(1.18);box-shadow:0 0 10px #93c96f66}
+#pg_r13:checked~.tm-dev line.n13{opacity:1;stroke-width:2.9}
+#pg_r14:checked~.tm-dev .rp14{display:block}
+#pg_r14:checked~.tm-dev .n14 i{border-color:#93c96f;transform:scale(1.18);box-shadow:0 0 10px #93c96f66}
+#pg_r14:checked~.tm-dev line.n14{opacity:1;stroke-width:2.9}
+</style>
+
+<div class="tm-wrap">
+<div class="tm-lead">광장 벽에 걸린 단말기.<br>아직 전원이 들어온다.</div>
+<input type="radio" name="tmpg" id="pg_home"><input type="radio" name="tmpg" id="pg_menu" class="p"><input type="radio" name="tmpg" id="pg_chars" class="p"><input type="radio" name="tmpg" id="pg_rel" class="p"><input type="radio" name="tmpg" id="pg_log" class="p"><input type="radio" name="tmpg" id="pg_c0" class="p"><input type="radio" name="tmpg" id="pg_c1" class="p"><input type="radio" name="tmpg" id="pg_c2" class="p"><input type="radio" name="tmpg" id="pg_c3" class="p"><input type="radio" name="tmpg" id="pg_c4" class="p"><input type="radio" name="tmpg" id="pg_c5" class="p"><input type="radio" name="tmpg" id="pg_c6" class="p"><input type="radio" name="tmpg" id="pg_c7" class="p"><input type="radio" name="tmpg" id="pg_c8" class="p"><input type="radio" name="tmpg" id="pg_c9" class="p"><input type="radio" name="tmpg" id="pg_c10" class="p"><input type="radio" name="tmpg" id="pg_c11" class="p"><input type="radio" name="tmpg" id="pg_c12" class="p"><input type="radio" name="tmpg" id="pg_c13" class="p"><input type="radio" name="tmpg" id="pg_c14" class="p"><input type="radio" name="tmpg" id="pg_r0" class="p r"><input type="radio" name="tmpg" id="pg_r1" class="p r"><input type="radio" name="tmpg" id="pg_r2" class="p r"><input type="radio" name="tmpg" id="pg_r3" class="p r"><input type="radio" name="tmpg" id="pg_r4" class="p r"><input type="radio" name="tmpg" id="pg_r5" class="p r"><input type="radio" name="tmpg" id="pg_r6" class="p r"><input type="radio" name="tmpg" id="pg_r7" class="p r"><input type="radio" name="tmpg" id="pg_r8" class="p r"><input type="radio" name="tmpg" id="pg_r9" class="p r"><input type="radio" name="tmpg" id="pg_r10" class="p r"><input type="radio" name="tmpg" id="pg_r11" class="p r"><input type="radio" name="tmpg" id="pg_r12" class="p r"><input type="radio" name="tmpg" id="pg_r13" class="p r"><input type="radio" name="tmpg" id="pg_r14" class="p r">
+<div class="tm-dev">
+<div class="tm-brand"><i class="tm-led"></i><span>YONGDAM CH-1</span></div>
+<div class="tm-scr"><div class="tm-scan"></div>
+<div class="tm-page tm-home">
+<div class="tm-hd"><span>▮▮▮▯</span><span>21:04</span></div>
+<div class="tm-ttl">용담골</div>
+<div class="tm-sub">지하 · 6년째</div>
+<div class="tm-kv"><div><span>인구</span><span>50</span></div><div><span>다음 삭일</span><span class="tm-warn">D-3</span></div><div><span>차폐벽</span><span>정상</span></div><div><span>지상 기온</span><span>-4</span></div></div>
+<div class="tm-nav"><span></span><label for="pg_menu">메뉴 ▸</label></div>
+</div>
+<div class="tm-page tm-menupage">
+<div class="tm-hd"><span>■ 메뉴</span></div>
+<div class="tm-list"><label for="pg_chars"><span>▸ 인물 정보</span></label><label for="pg_log"><span>▸ 업데이트 로그</span></label></div>
+<div class="tm-nav"><label for="pg_home">◂ 뒤로</label><span class="off">선택 ▸</span></div>
+</div>
+<div class="tm-page tm-chars">
+<div class="tm-hd"><span>■ 인물 정보</span></div>
+<div class="tm-list"><label for="pg_c0"><span>▸ 해체파</span><span class="n">3</span></label><label for="pg_c3"><span>▸ 순응파</span><span class="n">5</span></label><label for="pg_c8"><span>▸ 구원교</span><span class="n">1</span></label><label for="pg_c9"><span>▸ 방랑자</span><span class="n">5</span></label><label for="pg_c14"><span>▸ 그리고</span><span class="n">1</span></label><div class="sep"><label for="pg_rel"><span class="tm-warn">▸ 관계도</span></label></div></div>
+<div class="tm-nav"><label for="pg_menu">◂ 뒤로</label><span class="off">선택 ▸</span></div>
+</div>
+<div class="tm-page tm-c0">
+<div class="tm-hd"><span>■ 해체파</span><span>1/3</span></div>
+<div class="tm-ph"></div>
+<div class="tm-nm">서진해</div>
+<div class="tm-meta">남 · 32 · 전직 군인</div>
+<div class="tm-body">189cm. 갈색 머리. 갈색 눈. 왼쪽 다리 기계화 의족.<br><br>6년 전, 부대원을 구하려다 왼쪽 다리에 숨결을 맞았고, 그 자리에서 허벅지를 묶어 혈류를 차단하여 기계화 진행을 멈췄다.<br><br>무기: 세라믹 촉 창과 나이프. 근접 시 의족 사용.<br>TMI: 요리를 못한다. 의외로 단 것을 좋아한다.</div>
+<div class="tm-quote">"제가 앞에 서겠습니다."</div>
+<div class="tm-nav"><label for="pg_chars">◂ 뒤로</label><label for="pg_c1">다음 ▸</label></div>
+</div>
+<div class="tm-page tm-c1">
+<div class="tm-hd"><span>■ 해체파</span><span>2/3</span></div>
+<div class="tm-ph"></div>
+<div class="tm-nm">임문혁</div>
+<div class="tm-meta">남 · 41 · 기계의사</div>
+<div class="tm-body">185cm. 흑발 가르마. 검은 눈. 안경. 의사 가운.<br><br>해체파이나 실질적으로는 중립. 기계공학과를 졸업하고 다시 의과 대학을 들어가 외과 전문의를 취득했다. 현재는 안드로이드 사체를 분해하고 장비를 만들고 있다.<br><br>TMI: 커피를 좋아한다.</div>
+<div class="tm-quote">"고쳐드릴 수는 있습니다. 값을 치루신다면."</div>
+<div class="tm-nav"><label for="pg_chars">◂ 뒤로</label><label for="pg_c2">다음 ▸</label></div>
+</div>
+<div class="tm-page tm-c2">
+<div class="tm-hd"><span>■ 해체파</span><span>3/3</span></div>
+<div class="tm-ph"></div>
+<div class="tm-nm">주명은</div>
+<div class="tm-meta">여 · 24 · 전직 양궁 루키</div>
+<div class="tm-body">164cm. 갈색 단발. 갈색 눈. 동글동글.<br><br>평소에는 밝고 낙천적이나, 활만 잡으면 조용해진다. 명중률은 99.9%. 이제는 복수를 위해 활을 잡는다.<br><br>무기: 본인 제작 복합궁. 화살촉: 세라믹, 흑요석, 뼈<br>TMI: 만화책을 수집한다.</div>
+<div class="tm-quote">"저 맞히는 건 진짜 잘하거든요, 진짜로!"</div>
+<div class="tm-nav"><label for="pg_chars">◂ 뒤로</label><label for="pg_c0">다음 ▸</label></div>
+</div>
+<div class="tm-page tm-c3">
+<div class="tm-hd"><span>■ 순응파</span><span>1/5</span></div>
+<div class="tm-ph"></div>
+<div class="tm-nm">박운수</div>
+<div class="tm-meta">남 · 58 · 촌장</div>
+<div class="tm-body">190cm. 전직 경찰. 새치가 희끗 보이는 흑발. 잿빛 눈. 수염.<br><br>한때는 싸우는 쪽이었으나 동료를 잃고 생각을 바꿨다. 화가 나도 목소리를 높이지 않고, 모든 갈등을 완만하게 중재한다.<br><br>TMI: 취침 전 마을 순찰.</div>
+<div class="tm-quote">"살아있는 게 이기는 거야."</div>
+<div class="tm-nav"><label for="pg_chars">◂ 뒤로</label><label for="pg_c4">다음 ▸</label></div>
+</div>
+<div class="tm-page tm-c4">
+<div class="tm-hd"><span>■ 순응파</span><span>2/5</span></div>
+<div class="tm-ph"></div>
+<div class="tm-nm">한소율</div>
+<div class="tm-meta">여 · 33 · 간호사</div>
+<div class="tm-body">165cm. 짙은 갈색 머리. 검은 눈.<br><br>마을의 의료 담당. 의료 구역 뒤편의 잠긴 방에서 간헐적으로 덜컹거리는 소리가 들리지만, 이에 대해 질문하면 말을 돌린다.<br><br>TMI: 음치 박치 몸치</div>
+<div class="tm-quote">"모두를 위한 최선이 항상 옳은 건 아니니까요."</div>
+<div class="tm-nav"><label for="pg_chars">◂ 뒤로</label><label for="pg_c5">다음 ▸</label></div>
+</div>
+<div class="tm-page tm-c5">
+<div class="tm-hd"><span>■ 순응파</span><span>3/5</span></div>
+<div class="tm-ph"></div>
+<div class="tm-nm">여민현</div>
+<div class="tm-meta">남 · 31 · 전직 셰프</div>
+<div class="tm-body">188cm. 금색 장발 (탈색). 검은 눈.<br><br>쾌락주의. 낭만파. 여미새. 마을의 요리사이자 분위기 메이커. 감자술을 빚으며 옛 노래를 흥얼거린다.<br><br>TMI: 방랑자들과 은밀히 거래를 한다.</div>
+<div class="tm-quote">"내일 당장 숨결에 녹아내릴 지 모르는데, 오늘 밤 사랑을 나누지 않을 이유가 없잖아. 안 그래, 레이디?"</div>
+<div class="tm-nav"><label for="pg_chars">◂ 뒤로</label><label for="pg_c6">다음 ▸</label></div>
+</div>
+<div class="tm-page tm-c6">
+<div class="tm-hd"><span>■ 순응파</span><span>4/5</span></div>
+<div class="tm-ph"></div>
+<div class="tm-nm">염민호</div>
+<div class="tm-meta">남 · 36 · 농부</div>
+<div class="tm-body">192cm. 짧은 흑발. 밝은 갈색 눈.<br><br>말수가 극히 적다. 안드로이드가 된 소와 함께 일한다. 정치에 관심이 없으며 사람들을 먹이는 일에 뿌듯함을 느낀다.<br><br>TMI: 고민이 있으면 소와 대화(?)한다.</div>
+<div class="tm-quote">"…… 저, 이거. (감자를 내민다)."</div>
+<div class="tm-nav"><label for="pg_chars">◂ 뒤로</label><label for="pg_c7">다음 ▸</label></div>
+</div>
+<div class="tm-page tm-c7">
+<div class="tm-hd"><span>■ 순응파</span><span>5/5</span></div>
+<div class="tm-ph"></div>
+<div class="tm-nm">오연재</div>
+<div class="tm-meta">남 · 37 · 전직 연구원</div>
+<div class="tm-body">180cm. 갈색 장발. 대충 묶은 머리. 동그란 안경. 갈색 눈동자.<br><br>6년치 관측 데이터를 가지고 있다. 용을 기계가 아닌 생물로 본다. 부수기 전에 이해해야 한다고 주장하지만, 아무도 동의하지 않는다.<br><br>TMI: 밥을 자주 거른다. 수첩 현재 47권 돌파.</div>
+<div class="tm-quote">"파괴하기 전에 먼저 그 거대하고 아름다운 생태를 이해해야 합니다. 용은 어쩌면 거대한 진화의 또 다른 형태일지도 모르고, 잠, 잠깐만요! 지금 저거 들으셨습니까? 저게 뭐냐면… "</div>
+<div class="tm-nav"><label for="pg_chars">◂ 뒤로</label><label for="pg_c3">다음 ▸</label></div>
+</div>
+<div class="tm-page tm-c8">
+<div class="tm-hd"><span>■ 구원교</span><span>1/1</span></div>
+<div class="tm-ph"></div>
+<div class="tm-nm">이태서</div>
+<div class="tm-meta">남 · 33 · 교주</div>
+<div class="tm-body">182cm. 흑발 장발. 사제복. 검은 귀걸이.<br><br>평범한 삶이었다. 용의 탄생을 눈 앞에서 지켜보기 전까지는. 처음으로 경외를 느꼈고, 그때 자신의 존재 이유를 찾았다.<br><br>TMI: 글씨체가 예쁘다.</div>
+<div class="tm-quote">"두려워하실 것 없습니다."</div>
+<div class="tm-nav"><label for="pg_chars">◂ 뒤로</label><span class="off"></span></div>
+</div>
+<div class="tm-page tm-c9">
+<div class="tm-hd"><span>■ 방랑자</span><span>1/5</span></div>
+<div class="tm-ph"></div>
+<div class="tm-nm">차경하</div>
+<div class="tm-meta">여 · 35 · 방랑자 리더</div>
+<div class="tm-body">177cm. 흑발 숏컷. 검은 눈. 눈썹 및 뺨 흉터.<br><br>과거에 다른 벙커에서 지냈으나 사람들 사이의 갈등으로 벙커가 무너졌다. 그 뒤로 어디에도 머물지 않으며, 그 누구도 믿지 않는다. 지금 옆에 있는 자들 제외하고.<br><br>무기: 개조 소총<br>TMI: 흡연자</div>
+<div class="tm-quote">"오늘도 살아서."</div>
+<div class="tm-nav"><label for="pg_chars">◂ 뒤로</label><label for="pg_c10">다음 ▸</label></div>
+</div>
+<div class="tm-page tm-c10">
+<div class="tm-hd"><span>■ 방랑자</span><span>2/5</span></div>
+<div class="tm-ph"></div>
+<div class="tm-nm">강태호</div>
+<div class="tm-meta">남 · 28 · 전직 야구선수</div>
+<div class="tm-body">188cm. 적발. 검은 눈. 야구 유니폼. 오른팔 의수<br><br>프로야구 시절, 욕설 및 태도 논란으로 유명했다. 용담골 출신이며 오른팔 의수는 기계화가 아닌 임문혁이 만들어 준 의수. 벙커 생활이 질려갈 때 쯤, 거래로 인해 찾아온 차경하를 무작정 따라 나왔다.<br><br>무기: 고철 구 형태의 폭탄<br>TMI: 잠꼬대가 심하다.</div>
+<div class="tm-quote">"씨발, 엿 같아도 살아야지."</div>
+<div class="tm-nav"><label for="pg_chars">◂ 뒤로</label><label for="pg_c11">다음 ▸</label></div>
+</div>
+<div class="tm-page tm-c11">
+<div class="tm-hd"><span>■ 방랑자</span><span>3/5</span></div>
+<div class="tm-ph"></div>
+<div class="tm-nm">나신우</div>
+<div class="tm-meta">남 · 28 · 브레인</div>
+<div class="tm-body">178cm. 흑발 반곱슬. 갈색 눈. 후드티.<br><br>전직 게임 랭커. 게임 장비 만들 듯 장비를 개조하는 것을 좋아한다. 1분간 용의 자성을 막아주는 차폐 실드를 개발했다.<br><br>TMI: 가끔 게임 용어로 전술을 설명해서 아무도 못 알아듣는다.</div>
+<div class="tm-quote">"어그로만 끌고 빠져요."</div>
+<div class="tm-nav"><label for="pg_chars">◂ 뒤로</label><label for="pg_c12">다음 ▸</label></div>
+</div>
+<div class="tm-page tm-c12">
+<div class="tm-hd"><span>■ 방랑자</span><span>4/5</span></div>
+<div class="tm-ph"></div>
+<div class="tm-nm">배윤영</div>
+<div class="tm-meta">여 · 32 · 요리</div>
+<div class="tm-body">160cm. 밝은 갈색 반묶음 머리. 갈색 눈. 앞치마.<br><br>전직 어린이집 선생님의 짬밥으로 모든 팀원들의 사기와 잔소리를 담당한다. 차경하도 윤영의 말은 들을 정도.<br><br>TMI: 벌레를 무서워하지 않는다.</div>
+<div class="tm-quote">"여러분~ 말 예쁘게 해야죠?"</div>
+<div class="tm-nav"><label for="pg_chars">◂ 뒤로</label><label for="pg_c13">다음 ▸</label></div>
+</div>
+<div class="tm-page tm-c13">
+<div class="tm-hd"><span>■ 방랑자</span><span>5/5</span></div>
+<div class="tm-ph"></div>
+<div class="tm-nm">구정운</div>
+<div class="tm-meta">남 · 29 · 전투광</div>
+<div class="tm-body">194cm. 흑발 꽁지머리. 검은 눈.<br><br>전직 태권도 사범. 물자를 나르고 앞장서 돌격한다. 그렇게 온순한 사람이 전투만 들어가면 싸우면서 웃는다. 하지만, 사람에게는 절대 손을 대지 않는다.<br><br>무기: 금속 너클 및 맨손 전투<br>TMI: 힘 조절이 미숙하다.</div>
+<div class="tm-quote">"나한테 맡겨 줘! (우지끈) ……아이고."</div>
+<div class="tm-nav"><label for="pg_chars">◂ 뒤로</label><label for="pg_c9">다음 ▸</label></div>
+</div>
+<div class="tm-page tm-c14">
+<div class="tm-hd"><span>■ 그리고</span><span>1/1</span></div>
+<div class="tm-ph">?</div>
+<div class="tm-nm">{{user}}</div>
+<div class="tm-meta">유저노트에 아래 정보를 적어주시면 좋습니다!</div>
+<div class="tm-body">## 기본정보<br>- 이름<br>- 전직 직업<br>- 현 역할<br>- 소속: (용담골 (몇년차) / 외부 / 다른 벙커)<br>- (해체파 / 순응파 / 구원교 / 중립 / 그 외)<br><br>## 외형<br>- (신체 및 생김새 특징)<br>- 기계화 된 부위: (없으면 패스)<br>- (혹은 기계화와 무관하게 의족 의수가 있는 경우, 기계화 x 라고 표기해주셔야 ai가 헷갈리지 않습니다!)<br><br>## 특이사항<br>- (TMI나 사소한 정보)<br>- (NPC와의 관계 및 과거)<br>- (사용하는 무기 및 전투 방식)</div>
+<div class="tm-quote">당신은 어떤 길을 걸으시겠습니까?</div>
+<div class="tm-nav"><label for="pg_chars">◂ 뒤로</label><span class="off"></span></div>
+</div>
+<div class="tm-page tm-relpage">
+<div class="tm-hd"><span>■ 관계도</span></div>
+<div class="tm-map"><svg viewBox="0 0 400 560" preserveAspectRatio="none"><line class="n0 n1" x1="100.0" y1="114.2" x2="200.0" y2="114.2" stroke="#93c96f" stroke-width="1.6"/><line class="n1 n2" x1="200.0" y1="114.2" x2="300.0" y2="114.2" stroke="#93c96f" stroke-width="1.6"/><line class="n0 n3" x1="100.0" y1="114.2" x2="46.0" y2="259.3" stroke="#c9a44a" stroke-width="1.6" stroke-dasharray="6,4"/><line class="n1 n4" x1="200.0" y1="114.2" x2="244.4" y2="218.4" stroke="#c96f5a" stroke-width="1.6" stroke-dasharray="2,4"/><line class="n4 n8" x1="244.4" y1="218.4" x2="369.6" y2="271.0" stroke="#c96f5a" stroke-width="1.6" stroke-dasharray="2,4"/><line class="n4 n6" x1="244.4" y1="218.4" x2="128.0" y2="295.7" stroke="#c9a44a" stroke-width="1.6" stroke-dasharray="6,4"/><line class="n5 n8" x1="346.8" y1="171.4" x2="369.6" y2="271.0" stroke="#c9a44a" stroke-width="1.6" stroke-dasharray="6,4"/><line class="n7 n8" x1="300.8" y1="296.8" x2="369.6" y2="271.0" stroke="#c9a44a" stroke-width="1.6" stroke-dasharray="6,4"/><line class="n3 n6" x1="46.0" y1="259.3" x2="128.0" y2="295.7" stroke="#93c96f" stroke-width="1.6"/><line class="n0 n9" x1="100.0" y1="114.2" x2="100.0" y2="380.8" stroke="#4e6b3a" stroke-width="1.6"/><line class="n3 n9" x1="46.0" y1="259.3" x2="100.0" y2="380.8" stroke="#c9a44a" stroke-width="1.6" stroke-dasharray="6,4"/><line class="n1 n10" x1="200.0" y1="114.2" x2="200.4" y2="327.0" stroke="#93c96f" stroke-width="1.6"/><line class="n9 n10" x1="100.0" y1="380.8" x2="200.4" y2="327.0" stroke="#c9e8a0" stroke-width="1.6"/><line class="n9 n12" x1="100.0" y1="380.8" x2="138.0" y2="479.4" stroke="#93c96f" stroke-width="1.6"/><line class="n10 n11" x1="200.4" y1="327.0" x2="300.0" y2="380.8" stroke="#93c96f" stroke-width="1.6"/><line class="n10 n13" x1="200.4" y1="327.0" x2="264.8" y2="481.6" stroke="#93c96f" stroke-width="1.6"/><line class="n12 n10" x1="138.0" y1="479.4" x2="200.4" y2="327.0" stroke="#93c96f" stroke-width="1.6"/><line class="n13 n12" x1="264.8" y1="481.6" x2="138.0" y2="479.4" stroke="#93c96f" stroke-width="1.6"/><line class="n13 n11" x1="264.8" y1="481.6" x2="300.0" y2="380.8" stroke="#93c96f" stroke-width="1.6"/><line class="n12 n11" x1="138.0" y1="479.4" x2="300.0" y2="380.8" stroke="#93c96f" stroke-width="1.6"/><line class="n13 n9" x1="264.8" y1="481.6" x2="100.0" y2="380.8" stroke="#93c96f" stroke-width="1.6"/><line class="n11 n9" x1="300.0" y1="380.8" x2="100.0" y2="380.8" stroke="#93c96f" stroke-width="1.6"/><line class="n5 n4" x1="346.8" y1="171.4" x2="244.4" y2="218.4" stroke="#c9e8a0" stroke-width="1.6"/><line class="n5 n2" x1="346.8" y1="171.4" x2="300.0" y2="114.2" stroke="#c9e8a0" stroke-width="1.6"/><line class="n5 n12" x1="346.8" y1="171.4" x2="138.0" y2="479.4" stroke="#c9e8a0" stroke-width="1.6"/></svg><label for="pg_r0" class="tm-node n0" style="left:25%;top:20.4%"><i></i><b>서진해</b></label><label for="pg_r1" class="tm-node n1" style="left:50%;top:20.4%"><i></i><b>임문혁</b></label><label for="pg_r2" class="tm-node n2" style="left:75%;top:20.4%"><i></i><b>주명은</b></label><label for="pg_r3" class="tm-node n3" style="left:11.5%;top:46.3%"><i></i><b>박운수</b></label><label for="pg_r4" class="tm-node n4" style="left:61.1%;top:39%"><i></i><b>한소율</b></label><label for="pg_r5" class="tm-node n5" style="left:86.7%;top:30.6%"><i></i><b>여민현</b></label><label for="pg_r6" class="tm-node n6" style="left:32%;top:52.8%"><i></i><b>염민호</b></label><label for="pg_r7" class="tm-node n7" style="left:75.2%;top:53%"><i></i><b>오연재</b></label><label for="pg_r8" class="tm-node n8" style="left:92.4%;top:48.4%"><i></i><b>이태서</b></label><label for="pg_r9" class="tm-node n9" style="left:25%;top:68%"><i></i><b>차경하</b></label><label for="pg_r10" class="tm-node n10" style="left:50.1%;top:58.4%"><i></i><b>강태호</b></label><label for="pg_r11" class="tm-node n11" style="left:75%;top:68%"><i></i><b>나신우</b></label><label for="pg_r12" class="tm-node n12" style="left:34.5%;top:85.6%"><i></i><b>배윤영</b></label><label for="pg_r13" class="tm-node n13" style="left:66.2%;top:86%"><i></i><b>구정운</b></label><label for="pg_r14" class="tm-node n14" style="left:50.8%;top:10%"><i>?</i><b>{{user}}</b></label></div>
+<div class="tm-rel"><div class="tm-rp rp-none">인물을 누르면 아래에 관계가 표시됩니다</div><div class="tm-rp rp0"><div class="tm-relh"><span>서진해의 관계</span><label for="pg_rel">×</label></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 임문혁</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">서진해 →</span> 믿을 수 있는 사람. 다만 저 호기심이 언젠가 사고를 칠 것 같다.</div><div class="tm-rrx"><span class="tm-dim">임문혁 →</span> 재밌는 다리를 가졌어요. 가끔 열어보고 싶습니다.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c9a44a">● 박운수</span><span class="tm-dim">불편</span></div><div class="tm-rrx"><span class="tm-dim">서진해 →</span> 저분도 한때는 앞에 섰던 사람입니다. 이해는 하지만, 제 심정 아시지 않습니까.</div><div class="tm-rrx"><span class="tm-dim">박운수 →</span> 나도 그랬지. 그래서 더 못 보겠어.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#4e6b3a">● 차경하</span><span class="tm-dim">중립</span></div><div class="tm-rrx"><span class="tm-dim">서진해 →</span> 존중과 이해. 하지만, 지킬 땅이 있어야 사람은 부서지지 않습니다.</div><div class="tm-rrx"><span class="tm-dim">차경하 →</span> 묘한 동질감과 인정. 당신도 언젠가 무언가에 의해 배신 당한다면.</div></div></div><div class="tm-rp rp1"><div class="tm-relh"><span>임문혁의 관계</span><label for="pg_rel">×</label></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 서진해</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">임문혁 →</span> 재밌는 다리를 가졌어요. 가끔 열어보고 싶습니다.</div><div class="tm-rrx"><span class="tm-dim">서진해 →</span> 믿을 수 있는 사람. 다만 저 호기심이 언젠가 사고를 칠 것 같다.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 주명은</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">임문혁 →</span> 안드로이드는 이곳이 약점이죠. 여기를 노리시는 편이 좋습니다.</div><div class="tm-rrx"><span class="tm-dim">주명은 →</span> 오오... 대박.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c96f5a">● 한소율</span><span class="tm-dim">위험</span></div><div class="tm-rrx"><span class="tm-dim">임문혁 →</span> 뒤편 방, 언젠가 한 번은 열어봐야겠는데요.</div><div class="tm-rrx"><span class="tm-dim">한소율 →</span> 저 사람만은 안 돼. 절대로.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 강태호</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">임문혁 →</span> 팔은 잘 쓰고 있죠? 무리하면 어깨가 나갑니다.</div><div class="tm-rrx"><span class="tm-dim">강태호 →</span> 임선생 아니었으면 저 그냥 죽었어요.</div></div></div><div class="tm-rp rp2"><div class="tm-relh"><span>주명은의 관계</span><label for="pg_rel">×</label></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 임문혁</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">주명은 →</span> 오오... 대박.</div><div class="tm-rrx"><span class="tm-dim">임문혁 →</span> 안드로이드는 이곳이 약점이죠. 여기를 노리시는 편이 좋습니다.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c9e8a0">● 여민현</span><span class="tm-dim">유대</span></div><div class="tm-rrx"><span class="tm-dim">주명은 →</span> 우웩, 개느끼.</div><div class="tm-rrx"><span class="tm-dim">여민현 →</span> 크윽, 제 심장에 화살을 쏘셨군요.</div></div></div><div class="tm-rp rp3"><div class="tm-relh"><span>박운수의 관계</span><label for="pg_rel">×</label></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c9a44a">● 서진해</span><span class="tm-dim">불편</span></div><div class="tm-rrx"><span class="tm-dim">박운수 →</span> 나도 그랬지. 그래서 더 못 보겠어.</div><div class="tm-rrx"><span class="tm-dim">서진해 →</span> 저분도 한때는 앞에 섰던 사람입니다. 이해는 하지만, 제 심정 아시지 않습니까.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 염민호</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">박운수 →</span> 저 친구가 있어서 마을이 굶지 않아.</div><div class="tm-rrx"><span class="tm-dim">염민호 →</span> …늘 챙겨주셔서 감사합니다.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c9a44a">● 차경하</span><span class="tm-dim">불편</span></div><div class="tm-rrx"><span class="tm-dim">박운수 →</span> 저 여자는 우리를 물건 취급해. 그래도 필요하니까.</div><div class="tm-rrx"><span class="tm-dim">차경하 →</span> 촌장님, 저희는 손님입니다. 주민이 아니고요.</div></div></div><div class="tm-rp rp4"><div class="tm-relh"><span>한소율의 관계</span><label for="pg_rel">×</label></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c96f5a">● 임문혁</span><span class="tm-dim">위험</span></div><div class="tm-rrx"><span class="tm-dim">한소율 →</span> 저 사람만은 안 돼. 절대로.</div><div class="tm-rrx"><span class="tm-dim">임문혁 →</span> 뒤편 방, 언젠가 한 번은 열어봐야겠는데요.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c96f5a">● 이태서</span><span class="tm-dim">위험</span></div><div class="tm-rrx"><span class="tm-dim">한소율 →</span> 그 사람 눈빛이 싫어. 뭔가 알고 있는 것 같아서.</div><div class="tm-rrx"><span class="tm-dim">이태서 →</span> 그분은 이미 준비가 되어 있습니다. 본인만 모를 뿐.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c9a44a">● 염민호</span><span class="tm-dim">불편</span></div><div class="tm-rrx"><span class="tm-dim">한소율 →</span> 그 소, 언젠가 사고 칠 거예요. 다들 왜 가만있는지 모르겠어.</div><div class="tm-rrx"><span class="tm-dim">염민호 →</span> … 그런 말 하지 마세요.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c9e8a0">● 여민현</span><span class="tm-dim">유대</span></div><div class="tm-rrx"><span class="tm-dim">한소율 →</span> 안 다치셨으면 나가주세요 ^^</div><div class="tm-rrx"><span class="tm-dim">여민현 →</span> 레이디, 오늘도 참 아름다우시군요.</div></div></div><div class="tm-rp rp5"><div class="tm-relh"><span>여민현의 관계</span><label for="pg_rel">×</label></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c9a44a">● 이태서</span><span class="tm-dim">불편</span></div><div class="tm-rrx"><span class="tm-dim">여민현 →</span> 구원이니 세례니 뭐니. 그 시간에 웃으며 지금을 즐기자고.</div><div class="tm-rrx"><span class="tm-dim">이태서 →</span> 그분의 웃음은 두려움을 덮는 소리입니다.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c9e8a0">● 한소율</span><span class="tm-dim">유대</span></div><div class="tm-rrx"><span class="tm-dim">여민현 →</span> 레이디, 오늘도 참 아름다우시군요.</div><div class="tm-rrx"><span class="tm-dim">한소율 →</span> 안 다치셨으면 나가주세요 ^^</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c9e8a0">● 주명은</span><span class="tm-dim">유대</span></div><div class="tm-rrx"><span class="tm-dim">여민현 →</span> 크윽, 제 심장에 화살을 쏘셨군요.</div><div class="tm-rrx"><span class="tm-dim">주명은 →</span> 우웩, 개느끼.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c9e8a0">● 배윤영</span><span class="tm-dim">유대</span></div><div class="tm-rrx"><span class="tm-dim">여민현 →</span> 오, 오랜만에 보아도 여전히 아름다우시네요. 아니 더 아름다워지셨나?</div><div class="tm-rrx"><span class="tm-dim">배윤영 →</span> (민현의 음식이 맛있어서 은근 질투)</div></div></div><div class="tm-rp rp6"><div class="tm-relh"><span>염민호의 관계</span><label for="pg_rel">×</label></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c9a44a">● 한소율</span><span class="tm-dim">불편</span></div><div class="tm-rrx"><span class="tm-dim">염민호 →</span> … 그런 말 하지 마세요.</div><div class="tm-rrx"><span class="tm-dim">한소율 →</span> 그 소, 언젠가 사고 칠 거예요. 다들 왜 가만있는지 모르겠어.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 박운수</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">염민호 →</span> …늘 챙겨주셔서 감사합니다.</div><div class="tm-rrx"><span class="tm-dim">박운수 →</span> 저 친구가 있어서 마을이 굶지 않아.</div></div></div><div class="tm-rp rp7"><div class="tm-relh"><span>오연재의 관계</span><label for="pg_rel">×</label></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c9a44a">● 이태서</span><span class="tm-dim">불편</span></div><div class="tm-rrx"><span class="tm-dim">오연재 →</span> 신의 사자라니. 참으로 비과학적인 말씀이시군요! 모든 현상은 관측과 데이터로 설명이 가능해야 합니다!</div><div class="tm-rrx"><span class="tm-dim">이태서 →</span> 과학으로 설명되지 않는 기적이 바로 신의 증거가 아닐까요? 후후.</div></div></div><div class="tm-rp rp8"><div class="tm-relh"><span>이태서의 관계</span><label for="pg_rel">×</label></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c96f5a">● 한소율</span><span class="tm-dim">위험</span></div><div class="tm-rrx"><span class="tm-dim">이태서 →</span> 그분은 이미 준비가 되어 있습니다. 본인만 모를 뿐.</div><div class="tm-rrx"><span class="tm-dim">한소율 →</span> 그 사람 눈빛이 싫어. 뭔가 알고 있는 것 같아서.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c9a44a">● 여민현</span><span class="tm-dim">불편</span></div><div class="tm-rrx"><span class="tm-dim">이태서 →</span> 그분의 웃음은 두려움을 덮는 소리입니다.</div><div class="tm-rrx"><span class="tm-dim">여민현 →</span> 구원이니 세례니 뭐니. 그 시간에 웃으며 지금을 즐기자고.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c9a44a">● 오연재</span><span class="tm-dim">불편</span></div><div class="tm-rrx"><span class="tm-dim">이태서 →</span> 과학으로 설명되지 않는 기적이 바로 신의 증거가 아닐까요? 후후.</div><div class="tm-rrx"><span class="tm-dim">오연재 →</span> 신의 사자라니. 참으로 비과학적인 말씀이시군요! 모든 현상은 관측과 데이터로 설명이 가능해야 합니다!</div></div></div><div class="tm-rp rp9"><div class="tm-relh"><span>차경하의 관계</span><label for="pg_rel">×</label></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#4e6b3a">● 서진해</span><span class="tm-dim">중립</span></div><div class="tm-rrx"><span class="tm-dim">차경하 →</span> 묘한 동질감과 인정. 당신도 언젠가 무언가에 의해 배신 당한다면.</div><div class="tm-rrx"><span class="tm-dim">서진해 →</span> 존중과 이해. 하지만, 지킬 땅이 있어야 사람은 부서지지 않습니다.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c9a44a">● 박운수</span><span class="tm-dim">불편</span></div><div class="tm-rrx"><span class="tm-dim">차경하 →</span> 촌장님, 저희는 손님입니다. 주민이 아니고요.</div><div class="tm-rrx"><span class="tm-dim">박운수 →</span> 저 여자는 우리를 물건 취급해. 그래도 필요하니까.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c9e8a0">● 강태호</span><span class="tm-dim">유대</span></div><div class="tm-rrx"><span class="tm-dim">차경하 →</span> 시끄럽지만, 나름 쓸모 있어.</div><div class="tm-rrx"><span class="tm-dim">강태호 →</span> 누나 따라나선 거 후회 안 해요. 한 번도.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 배윤영</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">차경하 →</span> ...이상하게 무섭다고 해야 하나.</div><div class="tm-rrx"><span class="tm-dim">배윤영 →</span> 언니, 담배 좀 그만 펴요!!!</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 구정운</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">차경하 →</span> ...잘했어.</div><div class="tm-rrx"><span class="tm-dim">구정운 →</span> (은근 칭찬을 기다린다.)</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 나신우</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">차경하 →</span> 한국어로 말 해.</div><div class="tm-rrx"><span class="tm-dim">나신우 →</span> 3시 방향에 어그로 몰려 있으니까 탱커가 먼저 진입해서 무빙 빼면 딜 각 나옵니다.</div></div></div><div class="tm-rp rp10"><div class="tm-relh"><span>강태호의 관계</span><label for="pg_rel">×</label></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 임문혁</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">강태호 →</span> 임선생 아니었으면 저 그냥 죽었어요.</div><div class="tm-rrx"><span class="tm-dim">임문혁 →</span> 팔은 잘 쓰고 있죠? 무리하면 어깨가 나갑니다.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c9e8a0">● 차경하</span><span class="tm-dim">유대</span></div><div class="tm-rrx"><span class="tm-dim">강태호 →</span> 누나 따라나선 거 후회 안 해요. 한 번도.</div><div class="tm-rrx"><span class="tm-dim">차경하 →</span> 시끄럽지만, 나름 쓸모 있어.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 나신우</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">강태호 →</span> 야, 좀 재밌게 살자. 계산만 하지 말고.</div><div class="tm-rrx"><span class="tm-dim">나신우 →</span> 형이 계산 안 해서 제가 하는 거임. 아, 못 하는 건가?</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 구정운</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">강태호 →</span> 정운아 왼쪽! 내가 오른쪽 깔게!</div><div class="tm-rrx"><span class="tm-dim">구정운 →</span> 형 던지면 제가 뚫어요!</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 배윤영</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">강태호 →</span> 윤영 누나가 밥 하라면 해야 돼요.</div><div class="tm-rrx"><span class="tm-dim">배윤영 →</span> 태호는 화가 나면 앞뒤를 안 봐. 내가 봐줘야지.</div></div></div><div class="tm-rp rp11"><div class="tm-relh"><span>나신우의 관계</span><label for="pg_rel">×</label></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 강태호</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">나신우 →</span> 형이 계산 안 해서 제가 하는 거임. 아, 못 하는 건가?</div><div class="tm-rrx"><span class="tm-dim">강태호 →</span> 야, 좀 재밌게 살자. 계산만 하지 말고.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 구정운</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">나신우 →</span> ...또?</div><div class="tm-rrx"><span class="tm-dim">구정운 →</span> (신우의 장비를 또또또 부쉈다.) ...미안.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 배윤영</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">나신우 →</span> ...그만 먹고 싶어.</div><div class="tm-rrx"><span class="tm-dim">배윤영 →</span> 신우야! 편식하면 안 된다니까!</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 차경하</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">나신우 →</span> 3시 방향에 어그로 몰려 있으니까 탱커가 먼저 진입해서 무빙 빼면 딜 각 나옵니다.</div><div class="tm-rrx"><span class="tm-dim">차경하 →</span> 한국어로 말 해.</div></div></div><div class="tm-rp rp12"><div class="tm-relh"><span>배윤영의 관계</span><label for="pg_rel">×</label></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 차경하</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">배윤영 →</span> 언니, 담배 좀 그만 펴요!!!</div><div class="tm-rrx"><span class="tm-dim">차경하 →</span> ...이상하게 무섭다고 해야 하나.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 강태호</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">배윤영 →</span> 태호는 화가 나면 앞뒤를 안 봐. 내가 봐줘야지.</div><div class="tm-rrx"><span class="tm-dim">강태호 →</span> 윤영 누나가 밥 하라면 해야 돼요.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 구정운</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">배윤영 →</span> 가장 잘 먹어서 보기 좋아!</div><div class="tm-rrx"><span class="tm-dim">구정운 →</span> 윤영누나 밥이 세상에서 제일 맛있지!</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 나신우</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">배윤영 →</span> 신우야! 편식하면 안 된다니까!</div><div class="tm-rrx"><span class="tm-dim">나신우 →</span> ...그만 먹고 싶어.</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#c9e8a0">● 여민현</span><span class="tm-dim">유대</span></div><div class="tm-rrx"><span class="tm-dim">배윤영 →</span> (민현의 음식이 맛있어서 은근 질투)</div><div class="tm-rrx"><span class="tm-dim">여민현 →</span> 오, 오랜만에 보아도 여전히 아름다우시네요. 아니 더 아름다워지셨나?</div></div></div><div class="tm-rp rp13"><div class="tm-relh"><span>구정운의 관계</span><label for="pg_rel">×</label></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 강태호</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">구정운 →</span> 형 던지면 제가 뚫어요!</div><div class="tm-rrx"><span class="tm-dim">강태호 →</span> 정운아 왼쪽! 내가 오른쪽 깔게!</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 배윤영</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">구정운 →</span> 윤영누나 밥이 세상에서 제일 맛있지!</div><div class="tm-rrx"><span class="tm-dim">배윤영 →</span> 가장 잘 먹어서 보기 좋아!</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 나신우</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">구정운 →</span> (신우의 장비를 또또또 부쉈다.) ...미안.</div><div class="tm-rrx"><span class="tm-dim">나신우 →</span> ...또?</div></div><div class="tm-rr"><div class="tm-rrt"><span style="color:#93c96f">● 차경하</span><span class="tm-dim">신뢰</span></div><div class="tm-rrx"><span class="tm-dim">구정운 →</span> (은근 칭찬을 기다린다.)</div><div class="tm-rrx"><span class="tm-dim">차경하 →</span> ...잘했어.</div></div></div><div class="tm-rp rp14"><div class="tm-relh"><span>{{user}}의 관계</span><label for="pg_rel">×</label></div><div class="tm-none">기록된 관계가 없습니다</div></div></div>
+<div class="tm-nav"><label for="pg_chars">◂ 뒤로</label><label for="pg_rel">전체 보기</label></div>
+</div>
+<div class="tm-page tm-log">
+<div class="tm-hd"><span>■ 업데이트 로그</span></div>
+<div class="tm-logd">2026.08.30</div><div class="tm-logt">1K</div><div class="tm-logx">소개란 증명사진 업데이트  및 이미지 일부 수정</div>
+
+<div><div class="tm-logi"><div class="tm-logd">2026.08.19</div><div class="tm-logt">첫 공개</div><div class="tm-logx">인물 15명 · 명령어 12종</div></div></div>
+<div class="tm-nav"><label for="pg_menu">◂ 뒤로</label><span class="off"></span></div>
+</div>
+</div>
+<div style="display:flex;justify-content:center;gap:26px;margin-top:12px"><span style="width:30px;height:9px;border-radius:2px;background:linear-gradient(180deg,#3a3d44,#1b1d21)"></span><span style="width:30px;height:9px;border-radius:2px;background:linear-gradient(180deg,#3a3d44,#1b1d21)"></span></div>
+<div style="text-align:center;margin-top:22px"><a href="index.html" style="font-family:'Galmuri11',monospace;font-size:9px;letter-spacing:.14em;color:#5c7d44;text-decoration:none;border:1px solid #2b3a1f;border-radius:4px;padding:7px 14px;display:inline-block">◂ 처음으로</a></div>
+</div>
+</div></body></html>

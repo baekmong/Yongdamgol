@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>용담골</title>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Brush+Script&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<style id="live">
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#04040a;color:#c8c2b8;font-family:'Noto Sans KR',sans-serif;overflow-x:hidden}
+input[type=checkbox]{display:none}
+::-webkit-scrollbar{width:7px}
+::-webkit-scrollbar-track{background:#0e1016}
+::-webkit-scrollbar-thumb{background:#4a5464;border-radius:3.5px}
+::-webkit-scrollbar-thumb:hover{background:#4a5464dd}
+html{scrollbar-width:thin;scrollbar-color:#4a5464 #0e1016}
+.layer{position:relative;width:100%;overflow:hidden}
+.narr{font-family:'Gowun Batang',serif;font-size:clamp(7.1px,2.31vw,10.2px);line-height:2;letter-spacing:.01em;color:#ffffff;padding:0 clamp(15.4px,5.60vw,22.0px);position:relative;z-index:5}
+.narr.right{text-align:right}
+.narr.center{text-align:center}
+.narr em{font-style:normal;color:#db9595;font-weight:700}
+.hint{font-size:clamp(8.6px,2.80vw,12.3px);letter-spacing:.24em;color:#7d8798;animation:blink 2.6s ease-in-out infinite;cursor:pointer;text-align:center;transition:opacity .6s;display:block}
+@keyframes blink{0%,100%{opacity:.3}50%{opacity:.92}}
+.skipbar{position:absolute;bottom:18px;left:0;right:0;z-index:20;display:flex;justify-content:center;gap:clamp(8px,2.6vw,14px);padding:0 14px}
+.skipbtn{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:clamp(78px,25vw,104px);padding:9px 12px 8px;font-family:'Gowun Batang',serif;font-size:clamp(9.4px,3.05vw,13.4px);letter-spacing:.16em;color:#9aa4bb;text-decoration:none;background:rgba(10,14,26,.5);border:1px solid rgba(120,150,200,.22);border-radius:6px;backdrop-filter:blur(2px);transition:color .35s,border-color .35s,background .35s}
+.skipbtn em{font-style:normal;font-family:'Noto Sans KR',sans-serif;font-size:clamp(6.2px,2.04vw,9.0px);letter-spacing:.24em;color:#5f6b80}
+.skipbtn:hover{color:#dce6f5;border-color:rgba(150,185,255,.5);background:rgba(26,38,66,.6)}
+.skipbtn:hover em{color:#8e9db6}
+#sky{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#04040a}
+.sky-img{position:absolute;inset:0;background-size:cover;background-position:center}
+.sky-a{background-image:url('https://lh3.googleusercontent.com/d/1k5etfRvY43972vorLvsgJ9iZOPCwiwm1');opacity:1}
+.sky-b{background-image:url('https://lh3.googleusercontent.com/d/1vWmMwZyLNPV5MHh_9gW3CaIarzxnCGbh');opacity:0}
+#s1:checked~.sky-a{opacity:0}
+#s1:checked~.sky-b{opacity:1}
+.sky-veil{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(4,4,10,0.55) 0%,rgba(4,4,10,0.12) 30%,rgba(4,4,10,0.30) 62%,rgba(4,4,10,0.85) 88%,#04040a 100%);pointer-events:none}
+.meteors{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.mt{position:absolute;border-radius:50%;background:#fff;opacity:0;box-shadow:0 0 8px 2px rgba(190,225,255,.7)}
+.mt::after{content:'';position:absolute;top:calc(50% - 1px);left:0;width:120px;height:2px;border-radius:2px;background:linear-gradient(to right,rgba(255,255,255,0),rgba(185,218,255,.6),#fff);transform-origin:right center;transform:rotate(130deg) translateX(50%)}
+.mt.big{width:5px;height:5px;box-shadow:0 0 14px 4px rgba(200,230,255,.85)}
+.mt.big::after{width:186px;height:2.6px}
+@keyframes mfall{0%{top:-14%;transform:translateX(0);opacity:0}5%{opacity:1}82%{opacity:1}100%{top:114%;transform:translateX(-107.4vh);opacity:0}}
+#s1:checked~.meteors .mt{animation-name:mfall;animation-timing-function:cubic-bezier(.42,0,.75,1);animation-fill-mode:both;animation-duration:4s}
+#s1:checked~.meteors .m-first{animation-duration:4.60s;animation-delay:.2s}
+#s1:checked~.meteors .rain:nth-of-type(2){animation-delay:2.40s;animation-duration:4.00s}#s1:checked~.meteors .rain:nth-of-type(3){animation-delay:2.66s;animation-duration:4.43s}#s1:checked~.meteors .rain:nth-of-type(4){animation-delay:2.92s;animation-duration:4.87s}#s1:checked~.meteors .rain:nth-of-type(5){animation-delay:3.18s;animation-duration:5.30s}#s1:checked~.meteors .rain:nth-of-type(6){animation-delay:3.44s;animation-duration:4.34s}#s1:checked~.meteors .rain:nth-of-type(7){animation-delay:3.70s;animation-duration:4.77s}#s1:checked~.meteors .rain:nth-of-type(8){animation-delay:3.96s;animation-duration:5.20s}#s1:checked~.meteors .rain:nth-of-type(9){animation-delay:4.22s;animation-duration:4.24s}#s1:checked~.meteors .rain:nth-of-type(10){animation-delay:4.48s;animation-duration:4.67s}#s1:checked~.meteors .rain:nth-of-type(11){animation-delay:4.74s;animation-duration:5.11s}#s1:checked~.meteors .rain:nth-of-type(12){animation-delay:5.00s;animation-duration:4.14s}#s1:checked~.meteors .rain:nth-of-type(13){animation-delay:5.26s;animation-duration:4.57s}
+
+/* ── 타이틀: 접지 않고 페이드만 (모바일 잘림 방지) ── */
+.title-tap{cursor:pointer;display:inline-block;padding:10px 18px;transition:opacity 1.6s ease .8s}
+.title-tap h1{animation:titleglow 3.4s ease-in-out infinite}
+@keyframes titleglow{0%,100%{text-shadow:0 2px 30px rgba(0,0,0,.9),0 0 46px rgba(120,150,220,.26)}50%{text-shadow:0 2px 30px rgba(0,0,0,.9),0 0 74px rgba(155,185,255,.58)}}
+#s1:checked~.sky-title .title-tap{pointer-events:none;opacity:0}
+#s1:checked~.sky-title .title-tap h1{animation:none}
+
+.sky-title{text-align:center;z-index:7;position:relative;padding:0 14px;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.sky-title h1{font-family:'Gowun Batang',serif;font-size:clamp(34.3px,11.20vw,49.3px);font-weight:700;letter-spacing:0.2em;color:#f0ece4;margin-bottom:18px;line-height:1.35;padding-bottom:.12em;text-shadow:0 2px 30px rgba(0,0,0,.9),0 0 56px rgba(120,150,220,.35)}
+.sky-title .sub{font-family:'Gowun Batang',serif;font-size:clamp(9.4px,3.05vw,13.4px);letter-spacing:.1em;line-height:1.9;color:#9aa4bb;text-shadow:0 2px 12px rgba(0,0,0,.9)}
+
+/* ── 안내문: 애니메이션이 opacity를 덮어쓰지 않도록 animation:none 병행 ── */
+.hint-star{margin-top:52px;transition:opacity .8s ease}
+#s1:checked~.sky-title .hint-star{opacity:0;pointer-events:none;animation:none}
+
+.after-text{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);opacity:0;font-family:'Gowun Batang',serif;font-size:clamp(7.0px,2.29vw,10.1px);line-height:2;letter-spacing:.04em;color:#b6bfd2;text-shadow:0 2px 14px rgba(0,0,0,.95);pointer-events:none}
+#s1:checked~.sky-title .after-text{opacity:1;transition:opacity 1.4s ease 1.5s}
+
+#impact{padding:50px 0 80px;background:linear-gradient(to bottom,#04040a,#0d0d14)}
+.stage{position:relative;width:100%;margin:56px auto 0;aspect-ratio:1/1.5}
+.stage-img{position:absolute;inset:0;background-size:contain;background-position:center 50%;background-repeat:no-repeat;transition:opacity 1.2s ease;cursor:pointer;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 13%,#000 87%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 13%,#000 87%,transparent 100%)}
+.meteor-img{background-image:url('https://lh3.googleusercontent.com/d/1EsDN31GNpHDmMTNF-_61o32zxIBDJL4f');opacity:1}
+.assembled-img{background-image:url('https://lh3.googleusercontent.com/d/1pFYydVwUmSc4tm0xzfI1FluS0g1uzKeF');opacity:0;pointer-events:none}
+#s2:checked~.stage .meteor-img{opacity:0;pointer-events:none}
+#s2:checked~.stage .assembled-img{opacity:1;pointer-events:auto}
+#s2:checked~.after-assemble{opacity:1;max-height:600px;transition:opacity 1.4s ease 1.2s,max-height 1.4s ease 1.2s}
+.after-assemble{opacity:0;max-height:0;overflow:hidden;margin-top:44px}
+.core-hit{position:absolute;top:51%;left:52%;transform:translate(-50%,-50%);width:20%;aspect-ratio:1;border-radius:50%;cursor:pointer;opacity:0;pointer-events:none;z-index:6}
+#s2:checked~.stage .core-hit{pointer-events:auto;opacity:1}
+#s2:checked~.stage .core-hit::after{content:'';position:absolute;inset:-12%;border-radius:50%;border:1px solid rgba(120,190,255,.55);animation:ring 2.4s ease-out infinite}
+@keyframes ring{0%{transform:scale(.72);opacity:.95}100%{transform:scale(1.55);opacity:0}}
+.meteor-label{position:absolute;left:50%;transform:translateX(-50%);bottom:8%;z-index:7;color:#7d8798;font-size:clamp(8.6px,2.80vw,12.3px);letter-spacing:.2em;text-align:center;text-shadow:0 2px 12px rgba(0,0,0,.95);animation:blink 2.6s ease-in-out infinite;pointer-events:none;opacity:1;transition:opacity .5s;white-space:nowrap}
+#s2:checked~.stage .meteor-label{opacity:0;animation:none}
+.core-label{position:absolute;left:50%;top:calc(51% - 10% - 14px);transform:translate(-50%,-100%);z-index:7;color:#8fbde8;font-size:clamp(8.6px,2.80vw,12.3px);letter-spacing:.2em;text-align:center;text-shadow:0 2px 12px rgba(0,0,0,.95),0 0 20px rgba(0,0,0,.9);animation:blink 2.6s ease-in-out infinite;pointer-events:none;opacity:0;transition:opacity .6s;white-space:nowrap}
+#s2:checked~.stage .core-label{opacity:1}
+#s3:checked~.stage .core-label{opacity:0;animation:none}
+.modal-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:clamp(11.2px,4.07vw,16.0px);z-index:12;opacity:0;pointer-events:none;transition:opacity .55s ease;background:rgba(4,6,12,0.55)}
+#s3:checked~.stage .modal-wrap{opacity:1;pointer-events:auto}
+.modal-card{position:relative;width:100%;max-height:100%;overflow-y:auto;padding:clamp(12.6px,4.58vw,18.0px);background:rgba(8,12,22,0.9);border:1px solid rgba(90,140,200,.32);border-radius:10px;box-shadow:0 0 44px rgba(50,110,190,.22);transform:scale(.94);transition:transform .55s cubic-bezier(.25,.85,.35,1)}
+#s3:checked~.stage .modal-card{transform:scale(1)}
+.modal-card::-webkit-scrollbar{width:4px}
+.modal-card::-webkit-scrollbar-thumb{background:rgba(120,160,210,.4);border-radius:2px}
+.modal-img{width:76px;aspect-ratio:3/4;margin:0 auto 12px;background-image:url('https://lh3.googleusercontent.com/d/1YbM7ibCTiIVQJUgV0Wl4KGoeiCo2tbjH');background-size:contain;background-position:center;background-repeat:no-repeat;filter:drop-shadow(0 0 20px rgba(90,170,255,.5))}
+.modal-text{text-align:center}
+.modal-text h3{font-family:'Gowun Batang',serif;font-size:clamp(13.3px,4.33vw,19.0px);letter-spacing:.14em;color:#cfe3ff;margin-bottom:4px}
+.modal-text .tag{font-size:clamp(6.2px,2.04vw,9.0px);letter-spacing:.26em;color:#5c7ea6;margin-bottom:14px}
+.modal-text p{font-size:clamp(6.2px,2.04vw,9.0px);line-height:1.95;color:#98a4b6;margin-bottom:10px;text-align:left}
+.modal-text p:last-of-type{margin-bottom:0}
+.modal-text p b{color:#cfdcee;font-weight:500}
+.modal-close{position:absolute;top:7px;right:9px;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:17px;color:#7e91a8;cursor:pointer;border-radius:50%;transition:color .3s,background .3s;z-index:5;background:rgba(10,16,28,.6)}
+.modal-close:hover{color:#cfe0f2;background:rgba(90,140,200,.16)}
+#dragon{padding:50px 0 160px;background:linear-gradient(to bottom,#0d0d14,#171820)}
+.dstage{position:relative;width:100%;margin:56px auto 0;aspect-ratio:1/2.1}
+.dstage-img{position:absolute;inset:0;background-size:contain;background-position:center 50%;background-repeat:no-repeat;transition:opacity 1.2s ease,filter 1.4s ease;cursor:pointer;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 11%,#000 89%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 11%,#000 89%,transparent 100%)}
+.d-closed{background-image:url('https://lh3.googleusercontent.com/d/18leL_dJmJCUE09NgYTFSoyqzsC6dGDRs');opacity:1}
+.d-open{background-image:url('https://lh3.googleusercontent.com/d/1lVKMFgocpyOD8e5zSy8tl1r3UlInjZdi');opacity:0;pointer-events:none}
+#s4:checked~.dstage .d-closed{opacity:0;pointer-events:none}
+#s4:checked~.dstage .d-open{opacity:1;pointer-events:auto}
+#s4:checked~.hint-chest{opacity:0;pointer-events:none;height:0;margin:0;animation:none}
+#s4:checked~.hint-fire{opacity:1;pointer-events:auto;max-height:60px}
+.hint-fire{opacity:0;pointer-events:none;max-height:0;overflow:hidden;color:#7fbdf0;transition:opacity .8s ease 1.2s,max-height .8s ease 1.2s;margin-top:18px}
+.flash{position:fixed;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(190,230,255,1) 0%,rgba(90,170,255,.85) 35%,rgba(20,60,120,.6) 70%,transparent 100%);opacity:0;pointer-events:none;z-index:150}
+#s5:checked~.flash{animation:breathe 3.4s ease-in-out forwards}
+@keyframes breathe{0%{opacity:0}12%{opacity:.35}22%{opacity:1}45%{opacity:.95}100%{opacity:0}}
+#s5:checked~.hint-fire{opacity:0;pointer-events:none;animation:none}
+#s5:checked~.dstage .dstage-img{filter:brightness(.16) saturate(.4);transition:filter 1.6s ease 1.9s}
+.overtext{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:0 clamp(19.6px,7.12vw,28.0px);z-index:8;opacity:0;pointer-events:none;font-family:'Gowun Batang',serif;font-size:clamp(7.8px,2.54vw,11.2px);line-height:2;letter-spacing:.01em;color:#d6ddea;text-align:center;text-shadow:0 2px 18px rgba(0,0,0,.98),0 0 40px rgba(0,0,0,.9)}
+#s5:checked~.dstage .overtext{opacity:1;transition:opacity 1.8s ease 2.5s}
+.overtext em{font-style:normal;color:#db9595;font-weight:700}
+#descend{padding:140px 0 0;background:linear-gradient(to bottom,#171820 0%,#382e22 100%)}
+.gap{height:18vh}
+.shield-block{position:relative;margin-top:10px}
+.shield-bar{display:block;width:100%;height:26px;background:linear-gradient(180deg,#5a6874 0%,#8496a6 26%,#4a5764 62%,#2e3740 100%);box-shadow:0 -14px 40px rgba(0,0,0,.55),0 0 0 1px #212932,0 14px 50px rgba(0,0,0,.75);cursor:pointer;position:relative;transition:box-shadow .9s ease;z-index:4}
+#s6:checked~.shield-block .shield-bar{box-shadow:0 -14px 46px rgba(90,150,200,.22),0 0 0 1px #4e6274,0 0 34px 5px rgba(110,175,225,0.4),0 14px 50px rgba(0,0,0,.75)}
+#s6:checked~.shield-block .hint-shield{opacity:0;pointer-events:none;animation:none}
+#s6:checked~.shield-block .shield-info{opacity:1;max-height:700px;transition:opacity 1.1s ease .2s,max-height 1.1s ease .2s}
+.shield-info{opacity:0;max-height:0;overflow:hidden}
+.info-box{margin:38px clamp(15.4px,5.60vw,22.0px) 0;padding:22px 20px;background:rgba(14,16,20,.6);border-left:2px solid #5a6f80;font-size:clamp(6.2px,2.04vw,9.0px);line-height:1.95;color:#a49c90}
+.info-box .t{font-family:'Gowun Batang',serif;font-size:clamp(13.3px,4.33vw,19.0px);letter-spacing:.16em;color:#c9d6e2;display:block;margin-bottom:12px}
+.info-box b{color:#cfdcee;font-weight:500}
+#bunker{padding:130px 0 60px;background:linear-gradient(to bottom,#382e22,#463823);position:relative}
+.lamp{position:absolute;top:0;left:0;right:0;height:380px;background:radial-gradient(ellipse at 50% 0%,rgba(238,172,96,0.2) 0%,transparent 68%);pointer-events:none}
+.bt{text-align:center;position:relative;z-index:3}
+.bt h2{font-family:'Gowun Batang',serif;font-size:clamp(34.3px,11.20vw,49.3px);letter-spacing:.2em;color:#f3ddba;margin-bottom:14px;line-height:1.35;padding-bottom:.12em}
+.bt .meta{font-size:clamp(7.8px,2.54vw,11.2px);letter-spacing:.28em;color:#a08d70}
+.demo-note{margin-top:100px;text-align:center;font-size:clamp(8.6px,2.80vw,12.3px);letter-spacing:.1em;color:#7d6d58;line-height:2.2;padding:0 clamp(15.4px,5.60vw,22.0px)}
+@media(prefers-reduced-motion:reduce){
+  .title-tap h1,.hint,.core-label,.meteor-label,.core-hit::after{animation:none!important}
+  .hint,.core-label,.meteor-label{opacity:.85}
+}
+
+/* ══════════ 수첩 ══════════ */
+.nb-wrap{background:linear-gradient(to bottom,#463823 0%,#2a2820 22%,#141812 55%,#0e120f 100%);padding:24px 0 28px;font-family:'Noto Sans KR',sans-serif}
+.nb-wrap input{display:none}
+.nb-lead{text-align:center;font-family:'Gowun Batang',serif;font-size:clamp(7.3px,2.30vw,10.1px);line-height:1.95;color:#a8987c;padding:0 clamp(25.9px,9.00vw,36px);margin-bottom:34px}
+.nb-cover{display:block;cursor:pointer;text-align:center;transition:opacity .6s ease,max-height .6s ease}
+.nb-img{width:min(400px,88%);aspect-ratio:1/1.2;margin:0 auto;background-image:url('https://lh3.googleusercontent.com/d/1fQq4R8-DisfKzw21rbUJEB9QialYgQU-');background-size:cover;background-position:center 62%;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 88%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 88%,transparent 100%)}
+.nb-hint{font-size:clamp(7.1px,2.25vw,9.9px);color:#8a7f66;letter-spacing:.24em;margin-top:4px;animation:nbblink 2.8s ease-in-out infinite}
+@keyframes nbblink{0%,100%{opacity:.35}50%{opacity:.92}}
+#nb:checked~.nb-cover{max-height:0;opacity:0;overflow:hidden;pointer-events:none;margin:0}
+.nb-body{max-height:0;opacity:0;overflow:hidden;transition:max-height 1s ease,opacity .8s ease}
+#nb:checked~.nb-body{max-height:9000px;opacity:1}
+
+.nb-tabs{display:flex;gap:2px;padding-left:6px}
+.nb-tabs label{flex:1;text-align:center;font-size:clamp(9.1px,2.88vw,12.7px);padding:7px 2px 8px;background:#282115;color:#87795e;cursor:pointer;transition:background .3s,color .3s}
+.nb-tabs label[for=c1]{background:#413828;color:#e4d4b0}
+#c2:checked~.nb-body label[for=c1],#c3:checked~.nb-body label[for=c1],#c4:checked~.nb-body label[for=c1],#c5:checked~.nb-body label[for=c1]{background:#282115;color:#87795e}
+#c1:checked~.nb-body label[for=c1],#c2:checked~.nb-body label[for=c2],#c3:checked~.nb-body label[for=c3],#c4:checked~.nb-body label[for=c4],#c5:checked~.nb-body label[for=c5]{background:#413828;color:#e4d4b0}
+
+.nb-paper{background:#413828;border-left:6px solid #211b10;padding:30px 24px;background-image:repeating-linear-gradient(0deg,transparent 0 16px,#4c4230 16px 17px),repeating-linear-gradient(90deg,transparent 0 16px,#4c4230 16px 17px)}
+.nb-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.nb-head span{font-family:'Gowun Batang',serif;font-size:clamp(7.3px,2.30vw,10.1px);color:#c0b090;letter-spacing:.14em}
+.nb-close{font-size:clamp(12.6px,4.00vw,17.6px);color:#87795e;cursor:pointer;line-height:1;padding:0 2px}
+
+.nb-text{font-family:'Gowun Batang',serif;font-size:clamp(7.9px,2.50vw,11.0px);line-height:1.8;letter-spacing:.01em;color:#ddd0b4;min-height:340px}
+.nb-text h4{font-family:'Gowun Batang',serif;font-size:clamp(7.9px,2.50vw,11.0px);color:#d8c8a4;letter-spacing:.14em;font-weight:400;margin:0 0 15px;padding-bottom:7px;border-bottom:1px solid #4c4230}
+.nb-text h4 em{font-style:normal;color:#87795e;font-size:.85em}
+.nb-text p{margin:0 0 12px}
+.nb-text p:last-child{margin-bottom:0}
+.nb-note{font-family:'Nanum Brush Script',cursive;font-size:clamp(9.8px,3.10vw,13.6px);color:#b0a184;padding-left:10px;border-left:2px solid #635840;line-height:1.5}
+.nb-text b{color:#f0e0bc;font-weight:400}
+.nb-text u{text-decoration:none;border-bottom:1px solid #a89a78}
+.nb-text s{color:#87795e}
+.nb-fig{display:block;width:100%;background-size:contain;background-position:center;background-repeat:no-repeat;background-color:#1a1810;margin:0 0 4px;cursor:zoom-in;border:1px solid #4c4230;transition:border-color .3s}
+.nb-fig:hover{border-color:#7a6f52}
+.nb-map{aspect-ratio:1/0.67;background-image:url('https://lh3.googleusercontent.com/d/1PE06j0lG-ThdBqWvMdD0Ki7JU_XFwvkc')}
+.nb-sketch{aspect-ratio:1/0.69;background-image:url('https://lh3.googleusercontent.com/d/15_s_Quvnxs2dJ5sW5yzbxOA4r-mfcl9L')}
+.nb-figcap{text-align:center;font-size:.82em;color:#87795e;letter-spacing:.1em;margin:0 0 12px}
+.nb-zoom{position:fixed;inset:0;z-index:200;background:rgba(6,8,6,.94);display:flex;align-items:center;justify-content:center;padding:14px;opacity:0;pointer-events:none;transition:opacity .4s}
+#mapzoom:checked~.nb-body .z-map,#skzoom:checked~.nb-body .z-sk{opacity:1;pointer-events:auto}
+.nb-zoomimg{width:100%;max-height:100%;background-size:contain;background-position:center;background-repeat:no-repeat;transform:scale(.9);transition:transform .4s cubic-bezier(.25,.85,.35,1)}
+.z-map .nb-zoomimg{aspect-ratio:1/0.67;background-image:url('https://lh3.googleusercontent.com/d/1PE06j0lG-ThdBqWvMdD0Ki7JU_XFwvkc')}
+.z-sk .nb-zoomimg{aspect-ratio:1/0.69;background-image:url('https://lh3.googleusercontent.com/d/15_s_Quvnxs2dJ5sW5yzbxOA4r-mfcl9L')}
+#mapzoom:checked~.nb-body .z-map .nb-zoomimg,#skzoom:checked~.nb-body .z-sk .nb-zoomimg{transform:scale(1)}
+.nb-zoomx{position:absolute;top:12px;right:14px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#a89a7c;cursor:pointer;border:1px solid #4c4230;border-radius:50%;background:rgba(20,24,18,.8)}
+.nb-zoomx:hover{color:#e4d4b0;border-color:#7a6f52}
+.nb-zoomhint{position:absolute;bottom:16px;left:0;right:0;text-align:center;font-size:11px;color:#6a6250;letter-spacing:.16em}
+
+.nb-text .ch{display:none}
+.nb-text .ch1{display:block}
+#c2:checked~.nb-body .ch1,#c3:checked~.nb-body .ch1,#c4:checked~.nb-body .ch1,#c5:checked~.nb-body .ch1{display:none}
+#c1:checked~.nb-body .ch1,#c2:checked~.nb-body .ch2,#c3:checked~.nb-body .ch3,#c4:checked~.nb-body .ch4,#c5:checked~.nb-body .ch5{display:block}
+.nb-text .pg{display:none}
+.nb-text .ch4 .m1{display:block}
+#p42:checked~.nb-body .m1,#p43:checked~.nb-body .m1{display:none}
+#p41:checked~.nb-body .m1,#p42:checked~.nb-body .m2,#p43:checked~.nb-body .m3{display:block}
+
+.nb-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #4c4230;padding-top:11px;margin-top:16px;font-size:clamp(9.1px,2.88vw,12.7px)}
+.nb-foot label{color:#b0a184;cursor:pointer;padding:2px 6px}
+.nb-foot .num{color:#87795e;letter-spacing:.16em}
+.nb-foot .off{color:#3d3628;padding:2px 6px}
+@media(prefers-reduced-motion:reduce){.nb-hint{animation:none;opacity:.8}}
+</style>
+</head>
+<body>
+
+<section class="layer" id="sky">
+  <input type="checkbox" id="s1">
+  <div class="sky-img sky-a"></div>
+  <div class="sky-img sky-b"></div>
+  <div class="sky-veil"></div>
+  <div class="meteors">
+    <i class="mt big m-first" style="left:78%"></i>
+    <i class="mt rain big" style="left:40%;width:2.0px;height:2.0px"></i><i class="mt rain" style="left:63%;width:3.1px;height:3.1px"></i><i class="mt rain" style="left:86%;width:4.2px;height:4.2px"></i><i class="mt rain" style="left:109%;width:2.3px;height:2.3px"></i><i class="mt rain big" style="left:132%;width:3.4px;height:3.4px"></i><i class="mt rain" style="left:60%;width:4.6px;height:4.6px"></i><i class="mt rain" style="left:83%;width:2.7px;height:2.7px"></i><i class="mt rain" style="left:106%;width:3.8px;height:3.8px"></i><i class="mt rain big" style="left:129%;width:4.9px;height:4.9px"></i><i class="mt rain" style="left:57%;width:3.0px;height:3.0px"></i><i class="mt rain" style="left:80%;width:4.1px;height:4.1px"></i><i class="mt rain" style="left:103%;width:2.2px;height:2.2px"></i>
+  </div>
+  <div class="sky-title">
+    <label for="s1" class="title-tap">
+      <h1>용담골</h1>
+      <div class="sub">용이 사는 못, 그리고 그 아래 마을</div>
+    </label>
+    <label for="s1" class="hint hint-star">타이틀을 눌러보세요</label>
+    <div class="after-text">2026년 11월 17일.<br>그날 밤, 하늘에서 떨어진 것은 별이 아니었다.</div>
+  </div>
+  <div class="skipbar">
+    <a href="#notebook" class="skipbtn">수첩<em>세계관</em></a>
+    <a href="terminal.html" class="skipbtn">단말기<em>등장인물</em></a>
+  </div>
+</section>
+
+<section class="layer" id="impact">
+  <input type="checkbox" id="s2">
+  <input type="checkbox" id="s3">
+  <div class="narr"><em>6년 전, 지구 전역을 휩쓴 거대한 유성우.</em><br>도시는 속절없이 무너져 내렸고, 도로는 흉터처럼 갈라졌으며,<br>수많은 생명이 잿빛으로 스러졌다.<br><br>맹목적인 파괴 속에서 살아남은 자들은 이내 깨달았다.<br>밤하늘을 가르고 추락한 그것이 단순한 우주의 돌덩이가 아니라는 사실을.</div>
+  <div class="stage">
+    <label for="s2" class="stage-img meteor-img"></label>
+    <div class="stage-img assembled-img"></div>
+    <div class="meteor-label">운석을 눌러보세요</div>
+    <label for="s3" class="core-hit"></label>
+    <div class="core-label">클릭하여 설명 보기</div>
+    <div class="modal-wrap">
+      <div class="modal-card">
+        <label for="s3" class="modal-close">×</label>
+        <div class="modal-img"></div>
+        <div class="modal-text">
+          <h3>핵</h3>
+          <div class="tag">CORE · 운석의 심장</div>
+          <div><p>고작 성인 주먹 두 개 크기의 맥동하는 구체. 6년 전 지상을 강타했던 그 순간의 크기 그대로다. 모든 자성과 죽음의 숨결, 그리고 끔찍한 기계화가 시작되는 유일한 근원.</p><p>"저것을 파괴하면 용도, 안드로이드 군단도 영원히 멈출 것이라" — 그저 헛된 희망처럼 추정할 뿐이다. 가까워질수록 자성이 폭주하여 혈관 속 철분마저 찢어질 듯 반응하기에, 지난 6년간 이 심장부에 도달한 자는 존재하지 않는다.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="after-assemble">
+    <div class="narr center">핵은 몇 달에 걸쳐 주변의 잔해를 탐욕스럽게 끌어당겼다.<br>무너진 철근과 꺾인 크레인, 찢겨나간 컨테이너 외판과 뒹구는 버스 문짝, 그리고 부러진 신호등까지.<br><br>옛 세상이 남긴 모든 금속을 닥치는 대로 집어삼킨 그것은 — 기괴하고 거대한 자신의 골격을 스스로 조립하기 시작했다.</div>
+  </div>
+</section>
+
+<section class="layer" id="dragon">
+  <input type="checkbox" id="s4">
+  <input type="checkbox" id="s5">
+  <div class="flash"></div>
+  <div class="narr right">사람들은 그것을 <em>'용'</em>이라 불렀다.<br>잿빛 폐허 한가운데 똬리를 튼 채 끝없이 자라나는 거대한 고철의 괴수.<br>숨죽인 채 움직이지도, 포효하지도 않고, 그저 묵묵히 몸집을 불려 나갔다.</div>
+  <div class="dstage">
+    <label for="s4" class="dstage-img d-closed"></label>
+    <label for="s5" class="dstage-img d-open"></label>
+    <div class="overtext">한 달에 단 한 번, 달빛마저 자취를 감추는 삭일(朔日)의 밤.<br><br>굳게 닫혔던 흉갑이 열리고 서늘한 푸른빛이 세상을 한 차례 핥고 지나갔다.<br><br>빛에 닿은 숨결은 차가운 기계로 전락했고, 기계가 된 껍데기들은 다시 제 주인을 향해 맹목적인 걸음을 옮겼다.</div>
+  </div>
+  <label for="s4" class="hint hint-chest" style="margin-top:20px">용을 눌러보세요</label>
+  <label for="s5" class="hint hint-fire">한 번 더</label>
+</section>
+
+<section class="layer" id="descend">
+  <input type="checkbox" id="s6">
+  <div class="narr">지상에는 아무것도 남지 않았다.<br>금속이 뽑혀나간 콘크리트, 뒤집힌 아스팔트,<br>기계가 되어 굳어버린 나무들.<br><br>그래서 사람들은 살기 위해, 빛이 닿지 않는 아래로,<br><br><br>아래로,<br><br><br>더 아래로.</div>
+  <div class="gap"></div>
+  <div class="narr center">그곳은 용이 한 톨의 금속마저 남김없이 핥아먹은 버려진 땅.<br><br>낡은 수도관도, 뼈대 같던 철근도 깡그리 뽑혀 나가<br>더 이상 위로 끌려 올라갈 것이 없는 텅 빈 지반.<br><br>역설적이게도, 세상에서 가장 위험한 포식자의 바로 밑바닥이<br>생존자들에겐 유일하게 안전한 요새가 되었다.</div>
+  <div class="gap"></div>
+  <div class="shield-block">
+    <label for="s6" class="hint hint-shield" style="margin-bottom:16px">차폐벽을 눌러 설명보기</label>
+    <label for="s6" class="shield-bar"></label>
+    <div class="shield-info">
+      <div class="info-box">
+        <span class="t">차 폐 벽</span>
+        <span>용의 자성을 차단하는 벽. 오직 이 서늘한 천장 아래에서만 인간은 온전히 금속을 다룰 수 있다.<br><br>끊어진 전선을 잇고, 희미한 조명을 밝히며, 투박한 공구를 쥐는 일 — 지상에서는 목숨을 내놓아야 할 그 모든 행위가 이곳에선 허락된다.<br><br>다만 명심할 것. 이 경계선 위로 한 줌의 금속이라도 들고 올라가는 순간, 포식자가 당신을 부를 것이다.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="layer" id="bunker">
+  <div class="lamp"></div>
+  <div class="bt">
+    <h2>용담골</h2>
+    <div class="meta">인구 50명 · 지하 · 6년째</div>
+  </div>
+  <div class="narr center" style="margin-top:66px">부수자는 자,<br>버티자는 자,<br>숭배하는 자.<br><br>그리고 <em>오늘도 살아남은 자.</em></div>
+  
+</section>
+
+<div class="nb-wrap" id="notebook">
+<div class="nb-lead">광장 구석,<br>누군가 놓고 간 수첩이 펼쳐져 있다.</div>
+
+<input type="checkbox" id="nb">
+<input type="radio" name="ch" id="c1" checked><input type="radio" name="ch" id="c2"><input type="radio" name="ch" id="c3"><input type="radio" name="ch" id="c4"><input type="radio" name="ch" id="c5">
+<input type="radio" name="p4" id="p41" checked><input type="radio" name="p4" id="p42"><input type="radio" name="p4" id="p43">
+<input type="checkbox" id="mapzoom">
+<input type="checkbox" id="skzoom">
+
+<label for="nb" class="nb-cover"><div class="nb-img"></div><div class="nb-hint">눌러서 펼치기</div></label>
+
+<div class="nb-body">
+<div class="nb-tabs"><label for="c1">개체</label><label for="c2">숨결</label><label for="c3">핵</label><label for="c4">마을</label><label for="c5">군상</label></div>
+
+<div class="nb-paper">
+<div class="nb-head"><span>관측 기록 · 6년차</span><label for="nb" class="nb-close">×</label></div>
+<div class="nb-text">
+
+<div class="ch ch1">
+<h4>Ⅰ · 개체</h4>
+<label for="skzoom" class="nb-fig nb-sketch"></label>
+<div class="nb-figcap">눌러서 크게 보기</div>
+<p>낙하 후 6년. 그것은 여전히 자라고 있다.</p>
+<p>초기 관측 시 약 12m. 현재 추정치 <u>30~40m</u>. 매일 외골격의 형태가 재구성되므로 정확한 부피 측정은 무의미. 철근, 크레인 붐대, 컨테이너 외판, 버스 문짝, 신호등 기둥 — 구시대의 모든 금속 잔해가 저들의 세포이자 근육.</p>
+<p>3년 차를 기점으로 팽창 속도가 둔화되었으나, 이는 성장의 완료가 아닌 '주변 환경의 금속 고갈'에 따른 일시적 대사 저하로 추정.</p>
+<p>표면 5m 이내의 금속은 <u>포식당하듯</u> 빨려 들어감. 그 범위 외곽에서도 미약한 인력이 관측. 부서진 자신의 외장재와 쓰러진 안드로이드의 사체마저 기어코 회수하여 제 몸집을 불리는 데 사용.</p>
+<p class="nb-note">표면 온도 측정, 네 번째 실패. 5m 접근 시 장비 내부의 미세 금속 부품마저 파괴됨. 임문혁에게 100% 비금속 탐지침 제작을 다시 독촉할 것.</p>
+<p>사람들은 이것을 기계라 부른다. 나는 동의하지 않는다.<br><b><u>기계는 스스로 진화하고 증식하지 않는다. 저것은 거대한 생물이다.</u></b></p>
+</div>
+
+<div class="ch ch2">
+<h4>Ⅱ · 숨결</h4>
+<p>한 달에 한 번. 음력 <u>삭일</u>, 야간에만 발생.</p>
+<p><b>전조</b> 약 30~60분 전, 대기 중 미세 철가루가 부유하며 국지적 자기장 교란 시작.</p>
+<p><b>개방</b> 흉부 융기 및 장갑판 개방. 약 5~10분.</p>
+<p><b>방사</b> 고농도의 푸른 에너지가 단일 방향으로 360도 회전하며 방출. 약 2분. 매번 회전 방향 변수.</p>
+<p><b>냉각</b> 15~20분간 방열. 맥동하는 핵이 외부로 노출되는 유일한 취약 시간대. 해체파가 노리는 맹점이 바로 이 구간.</p>
+<p><b>폐쇄</b> 흉갑 원상 복구. 약 5~10분.</p>
+<p>피폭된 유기체는 생물학적 구조가 붕괴되고 기계화가 진행. 반면 기존의 무기물은 녹아 고철 덩어리가 된 후 저들의 영양분으로 흡수.</p>
+<p class="nb-note">초기 기록에는 달려서 피폭 범위를 벗어난 생존 사례가 존재. 현재는 불가능. 개체의 덩치가 커진 만큼 포식의 반경도 기하급수적으로 확장되었으므로.</p>
+</div>
+
+<div class="ch ch3">
+<h4>Ⅲ · 핵</h4>
+<p>주먹 두 개 크기. 6년 전 운석 형태로 낙하했을 당시와 동일.</p>
+<p>불규칙하게 맥동한다. 단순한 기계적 펌프음이 아닌, 명백한 심음(心音)의 형태.</p>
+<p>모든 자성과 푸른 숨결, 그리고 기계화 변이 현상이 이 작은 구체에서 비롯. 이것을 부수면 그것도 안드로이드 군단도 멈춘다 — 고 <s>믿고 싶어 한다</s> 추정.</p>
+<p>그러나 접근 반경이 좁혀질수록 자성이 폭주. 인체의 혈중 철분마저 강제로 끌어당겨 코피와 현기증, 최종적으로는 심각한 내장 파열 유발.</p>
+<p class="nb-note">2028년 봄, 돌격했던 해체파 세 명 중 아무도 20m 안쪽으로 진입하지 못함. 시신은 회수하지 못함. 그들 역시 결국 저 거대한 몸집의 일부로 흡수되었으므로.</p>
+<p><b>지난 6년간, 저 심장부에 도달한 생명체는 단 한 명도 없다.</b></p>
+</div>
+
+<div class="ch ch4">
+<div class="pg m1">
+<h4>Ⅳ · 마을 <em>· 1</em></h4>
+<label for="mapzoom" class="nb-fig nb-map"></label>
+<div class="nb-figcap">눌러서 크게 보기</div>
+<p>구 지하철역과 지하상가를 개조한 복합 구조.</p>
+<p>이곳의 지반은 이미 괴수에 의해 한 톨의 철근과 수도관마저 모조리 뜯겨나간 상태. 더 이상 끌려갈 것이 없는 땅. 역설적이게도 <u>포식자의 둥지 밑바닥이, 피식자들에겐 가장 안전한 피난처가 되었다.</u></p>
+<div class="nb-foot"><span class="off">←</span><span class="num">1 / 3</span><label for="p42">다음 →</label></div>
+</div>
+<div class="pg m2">
+<h4>Ⅳ · 마을 <em>· 2</em></h4>
+<p><b>광장</b> 구 중앙 통로. 하루 두 끼 공동 식사, 교역, 회의. 상층부의 저주파 진동이 가장 뚜렷하게 관측됨.</p>
+<p><b>거주 구역</b> 옛 점포를 방으로 개조. 셔터가 문. 파벌에 관계없이 혼재되어 있음.</p>
+<p><b>농업 구역</b> 선로 터널에 흙을 깔았다. 버섯, 콩나물, 감자. 광량 통제에 성공한 일부 구역은 변인 통제 하에 다른 작물 시험 중.</p>
+<p><b>작업실 · 의료 구역</b> 임문혁의 작업 공간은 자성 차폐율이 가장 높은 심층부에 위치. 의료 구역은 구 약국 시설을 점유 중.</p>
+<p><b>출입구</b> 지표면 자성 범위를 우회하는 수평 터널. 직상부로 향하는 수직 통로는 철저히 봉쇄.</p>
+<p class="nb-note">명심할 것. 차폐벽의 보호를 받는 이 한계선 아래에서만 금속의 사용이 허락된다. 이 선을 넘어 금속을 소지한 채 상승하는 행위는, 포식자에게 좌표를 바치는 자살 행위다.</p>
+<div class="nb-foot"><label for="p41">← 이전</label><span class="num">2 / 3</span><label for="p43">다음 →</label></div>
+</div>
+<div class="pg m3">
+<h4>Ⅳ · 마을 <em>· 3</em></h4>
+<p><b>철칙</b><br>금속 반출 금지. 안드로이드 반입 금지.<br>숨결 날과 삭일 당일 외출 금지 — 해체파의 출격은 원칙적 위반이나, 아무도 막지 못한다.</p>
+<p><b>배분</b><br>하루 두 끼, 광장에서 공동 식사. 균등 배분이 원칙.</p>
+<p><b>노동</b><br>농업 5~8명, 의료 한소율과 보조 2명, 요리 여민현과 주부들, 경비는 무력이 가능한 자들 — 대개 해체파.</p>
+<p><b>처벌</b><br>추방이 최고형. 즉 사실상의 사형. 그 아래는 사회적 압력으로 운영된다. 6년간 한두 번 있었다.</p>
+<p><b>행사</b><br>삭일 직후 술자리는 매달. 낙하일 11월 17일, 개촌일 3월 28일. 수확제는 비정기이며 박운수와 염민호가 주최한다.</p>
+<div class="nb-foot"><label for="p42">← 이전</label><span class="num">3 / 3</span><span class="off">→</span></div>
+</div>
+</div>
+
+<div class="ch ch5">
+<h4>Ⅴ · 군상</h4>
+<p>인구 약 50명. 파벌이라 부르기는 애매하다. 조직도 규약도 없다. 그저 의견이 다를 뿐.</p>
+<p><b>해체파</b> · 10여 명<br>핵을 부수려는 자들. 숨결 날 냉각 구간에 수직 통로로 올라가 동향을 파악함. 비금속 무기로 저항하는 무모한 집단.</p>
+<p><b>순응파</b> · 30여 명<br>적응하고 살아가는 자들. 압도적인 환경 변수에 순응하며, 이곳을 벗어날 수 없다는 현실을 수용. 마을 주민 대부분이 여기에 해당.</p>
+<p><b>구원교</b> · 5~7명<br>기계화를 구원이라 칭한다. 검은 귀걸이로 표식. 성소는 차폐벽으로 감싼 구 전동차. 감당할 수 없는 공포를 종교적 황홀경으로 치환한 정신적 변이체들. 확산세가 뚜렷함.</p>
+<p><b>방랑자</b> · 외부 5명<br>정착하지 않는 떠돌이들. 교역과 휴식을 위해서만 마을에 방문. 불안정한 공생 관계.</p>
+</div>
+
+</div>
+</div>
+
+<label for="mapzoom" class="nb-zoom z-map">
+  <div class="nb-zoomimg"></div>
+  <span class="nb-zoomx">×</span>
+  <span class="nb-zoomhint">아무 곳이나 눌러서 닫기</span>
+</label>
+<label for="skzoom" class="nb-zoom z-sk">
+  <div class="nb-zoomimg"></div>
+  <span class="nb-zoomx">×</span>
+  <span class="nb-zoomhint">아무 곳이나 눌러서 닫기</span>
+</label>
+</div>
+</div>
+
+</body>
+</html>
